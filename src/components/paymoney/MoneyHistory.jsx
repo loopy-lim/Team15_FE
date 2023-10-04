@@ -16,8 +16,8 @@ export const MoneyHistory = ({ }) => {
 
     return (
         <div className="bg-[#F1F1F1] p-2 m-6 rounded-lg w-[25rem] h-[40rem] flex flex-col leading-6">
-            <Txt typography="h8" marginRight="4" className="leading-6">페이머니 내역</Txt>
-            <Br className="w-25 flex" /><br />
+            <Txt typography="h8" marginRight="4" className="leading-6 border-b-[1px] border-black">페이머니 내역</Txt>
+            <br />
             <Txt typography="h8" >9월 18일 (월)</Txt>
             <div className="p-4 flex justify-between">
                 <Txt typography="h6">-10,000원</Txt>
