@@ -2,7 +2,6 @@ import { isMobile } from "react-device-detect";
 import { Br } from "../common/Br.component";
 import { Button } from "../common/Button.component";
 import classnames from "classnames";
-import { MOBILE_WIDTH } from "../../constants";
 import { Link } from "react-router-dom";
 
 /**
@@ -17,7 +16,7 @@ export const BottomFullLink = ({ br = false, title, to, isActive = true }) => {
   return (
     <div
       className={classnames(
-        "fixed bottom-0 z-20 bg-white",
+        "fixed bottom-0 z-20",
         isMobile
           ? "w-[calc(100%-3rem)] pb-[env(safe-area-inset-bottom)]"
           : "w-[calc(480px-3rem)] pb-4"

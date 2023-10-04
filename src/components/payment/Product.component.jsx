@@ -36,7 +36,7 @@ export const PaymoneyProduct = ({ id }) => {
           <Txt>대여상품</Txt>
           <Txt typography="h6" className="text-[#979797]">
             {`(
-            ${rentData.from.toLocaleDateString()} ~ ${rentData.to.toLocaleDateString()}
+            ${rentData.from?.toLocaleDateString()} ~ ${rentData.to?.toLocaleDateString()}
             )`}
           </Txt>
         </div>

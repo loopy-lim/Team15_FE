@@ -23,7 +23,7 @@ export const AppBar = ({ to, title, br = false }) => {
         </div>
         <div className="h-8 w-8"></div>
       </Link>
-      {br && <Br />}
+      {br && <Br className="w-[calc(100%-1.5rem)]" />}
     </nav>
   );
 };
