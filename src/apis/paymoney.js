@@ -1,6 +1,6 @@
 /**
  * @returns {Promise<{piece: number}>}
  */
-export const getPaymoney = () => {
+export const getPaymoney = async () => {
   return Promise.resolve({ piece: 50000 });
 };

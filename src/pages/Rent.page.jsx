@@ -4,18 +4,22 @@ import { RentCalendar } from "../components/rent/Calender.component";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
 import { MainContainer } from "../components/common/MainContainer.component";
 import { useAtom } from "jotai";
-import { canPayByMoney } from "../stores/payment.atom";
+import { rentDateAtom } from "../stores/rent.atom";
 
 export const RentPage = () => {
   const { id } = useParams();
-  const [canPay] = useAtom(canPayByMoney);
+  const [rentData] = useAtom(rentDateAtom);
 
   return (
     <>
       <AppBar to={`/product/${id}`} title={"대여날짜"} br={true} />
       <MainContainer>
         <RentCalendar />
-        <BottomFullLink title="결제하기" to={`/payment/${id}`} />
+        <BottomFullLink
+          title="결제하기"
+          to={`/payment/${id}`}
+          isActive={!!rentData.to && !!rentData.from}
+        />
       </MainContainer>
     </>
   );
