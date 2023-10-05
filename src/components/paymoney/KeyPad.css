@@ -1,0 +1,30 @@
+.keypad {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 18px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.clear {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+
+.key:hover {
+    background-color: #e0e0e0;
+}

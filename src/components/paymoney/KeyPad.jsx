@@ -1,29 +1,27 @@
 import React from 'react';
+import "./KeyPad.css";
 
-function KeyPad({ isOpen, onClose, onNumberClick }) {
+const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
     if (!isOpen) {
         return null;
     }
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 
     const handleNumberClick = (number) => {
         onNumberClick(number);
     };
 
     return (
-        <div className="key-pad">
-            <button onClick={() => handleNumberClick(1)}>1</button>
-            <button onClick={() => handleNumberClick(2)}>2</button>
-            <button onClick={() => handleNumberClick(3)}>3</button>
-            <button onClick={() => handleNumberClick(4)}>4</button>
-            <button onClick={() => handleNumberClick(5)}>5</button>
-            <button onClick={() => handleNumberClick(6)}>6</button>
-            <button onClick={() => handleNumberClick(7)}>7</button>
-            <button onClick={() => handleNumberClick(8)}>8</button>
-            <button onClick={() => handleNumberClick(9)}>9</button>
-            <button onClick={() => handleNumberClick(0)}>0</button>
-            <button onClick={onClose}>x</button>
+        <div className="keypad">
+            {numbers.map((number) => (
+                <button key={number} className="key" onClick={() => handleNumberClick(number)}>
+                    {number}
+                </button>
+            ))}
+            <button className="key clear" onClick={onClose}>x</button>
         </div>
     );
-}
+};
 
 export default KeyPad;
