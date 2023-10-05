@@ -1,6 +1,6 @@
 import { Txt } from "../common/Txt.component"
 import React, { useState } from 'react';
-import KeyPad from "./KeyPad";
+import { KeyPad } from "./KeyPad";
 
 export const ChargeMoney = () => {
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);

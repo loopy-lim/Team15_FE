@@ -1,7 +1,7 @@
 import React from 'react';
 import "./KeyPad.css";
 
-const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
+export const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
     if (!isOpen) {
         return null;
     }
@@ -24,4 +24,3 @@ const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
     );
 };
 
-export default KeyPad;
