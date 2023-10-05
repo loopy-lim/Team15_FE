@@ -21,6 +21,11 @@ export const ChargePage = () => {
                 )}
             >
                 <ChargeMoney />
+                <div className="ml-6">
+                    <p className="font-bold">무통장 입금 계좌</p>
+                    <br />
+                    <p>카카오뱅크 3333-05-220-8939  예금주: 보로미</p>
+                </div>
                 <BottomFullLink title="충전하기" />
 
             </main>
