@@ -1,6 +1,9 @@
 import { isIOS, isMobile } from "react-device-detect";
 import { AppBar } from "../components/common/AppBar.component";
 import { BASE_PADDING } from "../constants";
+import classnames from "classnames";
+import { ChargeMoney } from "../components/paymoney/ChargeMoney";
+import { BottomFullLink } from "../components/common/BottomFullLink.component";
 
 export const ChargePage = () => {
 
@@ -17,6 +20,8 @@ export const ChargePage = () => {
                         : "h-[calc(100vh-8.5rem)]"
                 )}
             >
+                <ChargeMoney />
+                <BottomFullLink title="충전하기" />
 
             </main>
         </>
