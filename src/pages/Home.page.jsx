@@ -16,13 +16,11 @@ export const HomePage = () => {
           "bg-white overflow-auto",
           BASE_PADDING,
           isMobile && isIOS
-            ? "h-[calc(100vh-4rem-env(safe-area-inset-top))]"
-            : "h-[calc(100vh-4rem)]"
+            ? "h-[calc(100vh-3.5rem-env(safe-area-inset-top))]"
+            : "h-[calc(100vh-3.5rem)]"
         )}
       >
-        <div className="my-6">
-          <HomeCarousel />
-        </div>
+        <HomeCarousel />
         <div className="my-8">
           <HomeCategory />
         </div>

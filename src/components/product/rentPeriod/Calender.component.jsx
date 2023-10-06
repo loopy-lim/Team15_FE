@@ -1,8 +1,8 @@
 import { ko } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
-import { Txt } from "../common/Txt.component";
+import { Txt } from "../../common/Txt.component";
 import { useAtom } from "jotai";
-import { rentDateAtom } from "../../stores/rent.atom";
+import { rentDateAtom } from "../../../stores/rent.atom";
 import "react-day-picker/dist/style.css";
 import "./calender.css";
 import { differenceInBusinessDays } from "date-fns";

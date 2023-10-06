@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom";
-import { AppBar } from "../components/common/AppBar.component";
-import { Payment } from "../components/payment/Payment.component";
-import { MainContainer } from "../components/common/MainContainer.component";
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
+import { AppBar } from "../../components/common/AppBar.component";
+import { Payment } from "../../components/payment/Payment.component";
+import { MainContainer } from "../../components/common/MainContainer.component";
 import { useAtom } from "jotai";
-import { canPayByMoney } from "../stores/payment.atom";
-import { PaymoneyProduct } from "../components/payment/Product.component";
-import { AnounceCanPayment } from "../components/payment/AnounceCanPayment.component";
-import { PaymentPayButton } from "../components/payment/PayButton.component";
+import { canPayByMoney } from "../../stores/payment.atom";
+import { PaymoneyProduct } from "../../components/payment/Product.component";
+import { AnounceCanPayment } from "../../components/payment/AnounceCanPayment.component";
+import { PaymentPayButton } from "../../components/payment/PayButton.component";
 
 export const PaymentPage = () => {
   const { id } = useParams();

@@ -1,8 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { TestPage } from "../src/pages/Test.page";
 import { HomePage } from "../src/pages/Home.page";
-import { ProductDetailPage } from "../src/pages/ProductDetail.page";
-import { RentPage } from "../src/pages/Rent.page";
 import { SigninPage } from "../src/pages/Signin.page";
 import { SignupPage } from "../src/pages/Signup.page";
 import { AccountPage } from "../src/pages/Account.page";
@@ -11,7 +9,7 @@ import { SchoolCardPage } from "../src/pages/SchoolCard.page";
 import { PayMoneyPage } from "../src/pages/PayMoney.page";
 import { MyPage } from "../src/pages/My.page";
 import { ChargePage } from "../src/pages/Charge.page";
-import { PaymentPage } from "../src/pages/Payment.page";
+import productRouter from "./product.router";
 
 const router = createBrowserRouter([
   {
@@ -22,14 +20,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <HomePage />,
   },
-  {
-    path: "/product/:id",
-    element: <ProductDetailPage />,
-  },
-  {
-    path: "/rent/:id",
-    element: <RentPage />,
-  },
+  ...productRouter,
   {
     path: "/signin",
     element: <SigninPage />,
@@ -61,10 +52,6 @@ const router = createBrowserRouter([
   {
     path: "/paymoney/charge",
     element: <ChargePage />,
-  },
-  {
-    path: "/payment/:id",
-    element: <PaymentPage />,
   },
 ]);
 
