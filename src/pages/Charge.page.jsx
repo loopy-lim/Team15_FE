@@ -33,9 +33,12 @@ export const ChargePage = () => {
             >
                 <ChargeMoney />
                 <div className="ml-6">
-                    <p className="font-bold">무통장 입금 계좌</p>
-                    <br />
+                    <p className="font-bold">무통장 입금 계좌</p><br />
                     <p>카카오뱅크 3333-05-220-8939    예금주: 보로미</p>
+                </div>
+                <div className="flex justify-center items-end h-screen">
+                    <p>1일(영업일 기준) 내로 입금이 확인되는대로</p><br />
+                    <p>페이머니에 충전될 예정입니다. 감사합니다</p>
                 </div>
                 <KeyPad
                     isOpen={isKeyboardOpen}
