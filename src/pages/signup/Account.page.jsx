@@ -1,11 +1,14 @@
-import { BASE_PADDING } from "../constants";
+import { BASE_PADDING } from "../../constants";
 import { isIOS, isMobile } from "react-device-detect";
 import classnames from "classnames";
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { InputPassword, InputText } from "../components/sign/Input.component";
-import { SlidePannels } from "../components/sign/SlidePannel.component";
-import { SignInformation } from "../components/sign/Information.component";
-import { MainContainer } from "../components/common/MainContainer.component";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component";
+import {
+  InputPassword,
+  InputText,
+} from "../../components/sign/Input.component";
+import { SlidePannels } from "../../components/sign/SlidePannel.component";
+import { SignInformation } from "../../components/sign/Information.component";
+import { MainContainer } from "../../components/common/MainContainer.component";
 
 export const AccountPage = () => {
   return (
@@ -15,7 +18,7 @@ export const AccountPage = () => {
       </div>
       <div className="flex flex-col items-center">
         <SignInformation title={`이메일과 비밀번호를\n설정하세요`} />
-        <div className="w-3/4">
+        <div className="flex flex-col gap-4 w-3/4">
           <InputText label="Email" />
           <InputPassword label="Password" />
         </div>

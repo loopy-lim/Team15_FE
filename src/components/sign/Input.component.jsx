@@ -41,7 +41,7 @@ export const Input = ({ type, className, label = "" }) => {
       <input
         id={id}
         type={type}
-        className={`border-b py-1 my-4 border-[#62AB05] ${className}`}
+        className={`border-b-2 py-1 my-4 border-[#62AB05] ${className}`}
       />
     </div>
   );

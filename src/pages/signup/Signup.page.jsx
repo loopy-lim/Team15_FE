@@ -1,9 +1,9 @@
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { Txt } from "../components/common/Txt.component";
-import { Input } from "../components/sign/Input.component";
-import { SlidePannels } from "../components/sign/SlidePannel.component";
-import { SignInformation } from "../components/sign/Information.component";
-import { MainContainer } from "../components/common/MainContainer.component";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component";
+import { Txt } from "../../components/common/Txt.component";
+import { Input } from "../../components/sign/Input.component";
+import { SlidePannels } from "../../components/sign/SlidePannel.component";
+import { SignInformation } from "../../components/sign/Information.component";
+import { MainContainer } from "../../components/common/MainContainer.component";
 
 export const SignupPage = () => {
   return (
