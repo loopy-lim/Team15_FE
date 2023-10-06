@@ -5,6 +5,7 @@ import classnames from "classnames";
 import { ChargeMoney } from "../components/paymoney/ChargeMoney";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
 import { KeyPad } from "../components/paymoney/KeyPad";
+import React, { useState } from 'react';
 
 export const ChargePage = () => {
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
@@ -36,8 +37,8 @@ export const ChargePage = () => {
                     <p className="font-bold">무통장 입금 계좌</p><br />
                     <p>카카오뱅크 3333-05-220-8939    예금주: 보로미</p>
                 </div>
-                <div className="flex justify-center items-end h-screen">
-                    <p>1일(영업일 기준) 내로 입금이 확인되는대로</p><br />
+                <div className="flex flex-col justify-center h-screen ml-20 mt-20">
+                    <p>1일(영업일 기준) 내로 입금이 확인되는대로</p>
                     <p>페이머니에 충전될 예정입니다. 감사합니다</p>
                 </div>
                 <KeyPad
