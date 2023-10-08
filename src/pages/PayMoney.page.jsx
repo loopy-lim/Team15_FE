@@ -5,8 +5,6 @@ import { isIOS, isMobile } from "react-device-detect";
 import classnames from "classnames";
 import { AppBar } from "../components/common/AppBar.component";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { MyMoney } from "../components/paymoney/MyMoney";
-import { MoneyHistory } from "../components/paymoney/MoneyHistory";
 
 export const PayMoneyPage = () => {
   const { id } = useParams();

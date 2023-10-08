@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 const homeMenu = [
   { iconType: "account", title: "마이페이지", href: "#" },
-  { iconType: "viewlist", title: "대여내역", href: "#" },
+  { iconType: "viewlist", title: "대여내역", href: "/rental" },
   { iconType: "home", title: "홈", href: "/" },
 ];
 
@@ -36,6 +36,7 @@ export const Menu = () => {
           <div className="top-12 absolute flex flex-col w-40 gap-2">
             {homeMenu.map((item) => (
               <Link
+                key={item.title}
                 className="flex justify-between py-2 px-4 rounded-lg border border-[#62AB05] bg-white"
                 to={item.href}
               >

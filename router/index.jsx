@@ -10,6 +10,7 @@ import { PayMoneyPage } from "../src/pages/PayMoney.page";
 import { MyPage } from "../src/pages/My.page";
 import { ChargePage } from "../src/pages/Charge.page";
 import productRouter from "./product.router";
+import { RentalListPage } from "../src/pages/RentalList.page";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "/paymoney/charge",
     element: <ChargePage />,
+  },
+  {
+    path: "/rental",
+    element: <RentalListPage />,
   },
 ]);
 

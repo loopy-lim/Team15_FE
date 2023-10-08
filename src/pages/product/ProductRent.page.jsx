@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { AppBar } from "../../components/common/AppBar.component";
-import { RentCalendar } from "../../components/rentPeriod/Calender.component";
+import { RentCalendar } from "../../components/product/rentPeriod/Calender.component";
 import { BottomFullLink } from "../../components/common/BottomFullLink.component";
 import { MainContainer } from "../../components/common/MainContainer.component";
 import { useAtom } from "jotai";
