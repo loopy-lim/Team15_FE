@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
 import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
+import { Link } from "react-router-dom";
 
 /**
  * @param {{
@@ -52,10 +53,12 @@ export const ItemRentalSchedule = ({ data }) => {
         </div>
       </div>
       <div className="flex px-8 gap-4">
-        <Button className="flex-1" size="small" color="white">
-          재대여
-        </Button>
-        <div className="flex-1  px-4"></div>
+        <Link className="flex-1">
+          <Button size="small" color="white">
+            재대여
+          </Button>
+        </Link>
+        <div className="flex-1"></div>
       </div>
     </div>
   );

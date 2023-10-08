@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
 import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
+import { Link } from "react-router-dom";
 
 /**
  * @param {{
@@ -60,10 +61,12 @@ export const ItemRental = ({ data, dayDiff }) => {
         </div>
       </div>
       <div className="flex px-8 gap-4">
-        <div className="flex-1  px-4"></div>
-        <Button className="flex-1" size="small" color="white">
-          반납하기
-        </Button>
+        <div className="flex-1"></div>
+        <Link className="flex-1">
+          <Button className="flex-1" size="small" color="white">
+            반납하기
+          </Button>
+        </Link>
       </div>
     </div>
   );

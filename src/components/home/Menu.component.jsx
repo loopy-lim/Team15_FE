@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const homeMenu = [
   { iconType: "account", title: "마이페이지", href: "#" },
   { iconType: "viewlist", title: "대여내역", href: "/rental" },
-  { iconType: "home", title: "홈", href: "/" },
+  // { iconType: "home", title: "홈", href: "/" },
 ];
 
 export const Menu = () => {

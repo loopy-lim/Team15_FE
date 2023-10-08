@@ -11,6 +11,7 @@ import { MyPage } from "../src/pages/My.page";
 import { ChargePage } from "../src/pages/Charge.page";
 import productRouter from "./product.router";
 import { RentalListPage } from "../src/pages/RentalList.page";
+import { ReviewPage } from "../src/pages/Review.page";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/rental",
     element: <RentalListPage />,
+  },
+  {
+    path: "/review/:productId",
+    element: <ReviewPage />,
   },
 ]);
 
