@@ -32,7 +32,7 @@ export const ProductList = () => {
       <Txt
         typography="h4"
         colors="secondary"
-        className="flex justify-center text-center py-4"
+        className="flex justify-center text-center pt-4 pb-8"
       >
         더이상 제품이 없어요
       </Txt>

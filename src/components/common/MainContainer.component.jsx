@@ -5,7 +5,7 @@ import { isIOS, isMobile } from "react-device-detect";
 /**
  * @param {{
  *  children: React.ReactNode
- * hasBottomFulLink?: boolean
+ *  hasBottomFulLink?: boolean
  * }}
  */
 export const MainContainer = ({ children, hasBottomFulLink = true }) => {
@@ -20,8 +20,8 @@ export const MainContainer = ({ children, hasBottomFulLink = true }) => {
             ? "h-[calc(100vh-10rem-env(safe-area-inset-top))]"
             : "h-[calc(100vh-8.5rem)]"
           : isMobile && isIOS
-          ? "h-[calc(100vh-1.5rem-env(safe-area-inset-top))]"
-          : "h-[calc(100vh)]"
+          ? "h-[calc(100vh-3.5rem-env(safe-area-inset-top))]"
+          : "h-[calc(100vh-3.5rem)]"
       )}
     >
       {children}
