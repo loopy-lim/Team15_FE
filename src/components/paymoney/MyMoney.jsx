@@ -4,7 +4,6 @@ import { Br } from "../common/Br.component";
 import { Button } from "../common/Button.component";
 import { Txt } from "../common/Txt.component";
 import { Modal } from "../common/Modal.component";
-import "../paymoney/MyMoney.css";
 
 export const MyMoney = () => {
     const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
