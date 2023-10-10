@@ -30,10 +30,8 @@ export const ItemRentalSchedule = ({ data }) => {
     <div className="flex flex-col gap-2 py-12">
       <div className="flex items-center">
         <div>
-          <Txt typography="subtitle" className="font-bold">
-            예약중
-          </Txt>
-          <Txt typography="subtitle" colors="secondary" className="font-bold">
+          <Txt className="font-bold">예약중</Txt>
+          <Txt colors="secondary" className="font-bold">
             {`(${new Date(data.borrowAt).toLocaleDateString()} ~ ${new Date(
               data.returnAt
             ).toLocaleDateString()})`}
@@ -52,7 +50,7 @@ export const ItemRentalSchedule = ({ data }) => {
           <Txt>1개</Txt>
         </div>
       </div>
-      <div className="flex px-8 gap-4">
+      <div className="flex gap-4">
         <Link className="flex-1">
           <Button size="small" color="white">
             재대여
