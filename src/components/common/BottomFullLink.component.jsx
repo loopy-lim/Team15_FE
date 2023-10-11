@@ -2,11 +2,11 @@ import { isMobile } from "react-device-detect";
 import { Br } from "../common/Br.component";
 import { Button } from "../common/Button.component";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
+import { Link } from "./Link.component";
 
 /**
  * @param {{
- *  beforeAction?: () => void
+ *  onClick?: () => void
  *  to: string
  *  title: string
  *  br: boolean
@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
  * }}
  */
 export const BottomFullLink = ({
-  beforeAction,
+  onClick,
   br = false,
   title,
   to,
@@ -30,7 +30,7 @@ export const BottomFullLink = ({
       )}
     >
       {br && <Br className="py-0 pb-3" />}
-      <Link to={to} onClick={beforeAction}>
+      <Link to={to} onClick={onClick}>
         <Button isActive={isActive}>{title}</Button>
       </Link>
     </div>
