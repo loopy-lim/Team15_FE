@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
 import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
-import { Link } from "react-router-dom";
+import { Link } from "../../common/Link.component";
 
 /**
  * @param {{
