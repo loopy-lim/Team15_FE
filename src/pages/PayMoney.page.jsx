@@ -15,7 +15,7 @@ export const PayMoneyPage = () => {
       <AppBar to="/mypage/paymoney" />
       <MainContainer hasBottomFullLink={true}>
         <ProductDetail id={id} />
-        <BottomFullLink title="페이머니" to={`/rent/${id}`} br={true} />
+        <BottomFullLink title="페이머니" to={`/rental/${id}`} br={true} />
       </MainContainer>
     </>
   );
