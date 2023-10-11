@@ -1,8 +1,5 @@
 import { useParams } from "react-router-dom";
 import { ProductDetail } from "../components/product/Detail.component";
-import { BASE_PADDING } from "../constants";
-import { isIOS, isMobile } from "react-device-detect";
-import classnames from "classnames";
 import { AppBar } from "../components/common/AppBar.component";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
 import { MainContainer } from "../components/common/MainContainer.component";
