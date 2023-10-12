@@ -8,7 +8,7 @@ import { KeyPad } from "../components/paymoney/KeyPad";
 import React, { useState } from 'react';
 
 export const ChargePage = () => {
-
+    const [number, setNumber] = useState(0); // 초기값 0으로 설정
     const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -18,6 +18,7 @@ export const ChargePage = () => {
 
     const handleNumberClick = (number) => {
         setInputValue(inputValue + number);
+        setNumber(Number(inputValue + number));
     };
 
     return (
@@ -47,7 +48,7 @@ export const ChargePage = () => {
                     onClose={toggleKeypad}
                     onNumberClick={handleNumberClick} // onNumberClick 함수를 전달
                 />
-                <BottomFullLink title="충전하기" />
+                <BottomFullLink title="충전하기" isActive={number > 0} />
 
             </main>
         </>
