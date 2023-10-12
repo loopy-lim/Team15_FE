@@ -6,19 +6,9 @@ import { ProductItem } from "./Item.component";
 import { Fragment } from "react";
 
 export const ProductList = () => {
-  const {
-    data: products,
-    isError,
-    isLoading,
-  } = useQuery(["allProduct"], getAllProduct);
-
-  if (isLoading) {
-    return <div>로딩중</div>;
-  }
-
-  if (isError) {
-    return <div>에러</div>;
-  }
+  const { data: products } = useQuery(["allProduct"], getAllProduct, {
+    suspense: true,
+  });
 
   return (
     <section>

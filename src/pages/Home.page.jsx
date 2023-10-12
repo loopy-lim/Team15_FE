@@ -3,6 +3,8 @@ import { HomeCategory } from "../components/home/Category.component";
 import { HomeHeader } from "../components/home/Header.component";
 import { ProductList } from "../components/product/List.component";
 import { MainContainer } from "../components/common/MainContainer.component";
+import { ErrorBoundary } from "../components/common/Errorboundary.component";
+import { Suspense } from "react";
 
 export const HomePage = () => {
   return (
@@ -11,7 +13,11 @@ export const HomePage = () => {
       <MainContainer hasBottomFullLink={false}>
         <HomeCarousel />
         <div className="my-8">
-          <HomeCategory />
+          <ErrorBoundary>
+            <Suspense fallback={<div>loading...</div>}>
+              <HomeCategory />
+            </Suspense>
+          </ErrorBoundary>
         </div>
         <ProductList />
       </MainContainer>

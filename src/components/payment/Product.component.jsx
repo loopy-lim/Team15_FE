@@ -6,20 +6,12 @@ import { rentDateAtom } from "../../stores/rent.atom";
 import { Br } from "../common/Br.component";
 
 export const PaymoneyProduct = ({ id }) => {
-  const {
-    data: product,
-    isError,
-    isLoading,
-  } = useQuery(["product", id], () => getProductById(id));
+  const { data: product } = useQuery(
+    ["product", id],
+    () => getProductById(id),
+    { suspense: true }
+  );
   const [rentData] = useAtom(rentDateAtom);
-
-  if (isLoading) {
-    return <div>로딩중</div>;
-  }
-
-  if (isError) {
-    return <div>에러</div>;
-  }
 
   return (
     <>

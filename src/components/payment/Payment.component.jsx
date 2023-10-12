@@ -24,36 +24,24 @@ const calculatePrice = (rentData, rentalPrice) => {
 export const Payment = ({ id }) => {
   const [productData, moneyData] = useQueries({
     queries: [
-      { queryKey: ["product", id], queryFn: () => getProductById(id) },
-      { queryKey: ["money"], queryFn: () => getPaymoney() },
+      {
+        queryKey: ["product", id],
+        queryFn: () => getProductById(id),
+        suspense: true,
+      },
+      { queryKey: ["money"], queryFn: () => getPaymoney(), suspense: true },
     ],
   });
 
-  const { data, isError, isLoading } = productData;
-  const {
-    data: money,
-    isError: moneyIsError,
-    isLoading: moneyIsLoading,
-  } = moneyData;
+  const { data } = productData;
+  const { data: money } = moneyData;
 
   const [rentDate] = useAtom(rentDateAtom);
   const [canPay, setCanPay] = useAtom(canPayByMoney);
 
   useEffect(() => {
-    setCanPay(
-      !moneyIsLoading &&
-        !moneyIsError &&
-        money.piece >= calculatePrice(rentDate, data.rentalPrice)
-    );
-  }, [moneyIsLoading, moneyIsError, data, money, rentDate]);
-
-  if (!data || !money || isLoading || moneyIsLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError || moneyIsError) {
-    return <div>error</div>;
-  }
+    setCanPay(money.piece >= calculatePrice(rentDate, data.rentalPrice));
+  }, [data, money, rentDate]);
 
   return (
     <div className="flex flex-col justify-between">

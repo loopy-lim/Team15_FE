@@ -5,19 +5,9 @@ import { Br } from "../common/Br.component";
 import { Fragment } from "react";
 
 export const RentalList = () => {
-  const {
-    data: rentalData,
-    isLoading,
-    isError,
-  } = useQuery(["rentalList"], () => getAllRental());
-
-  if (isLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError) {
-    return <div>error</div>;
-  }
+  const { data: rentalData } = useQuery(["rentalList"], () => getAllRental(), {
+    suspense: true,
+  });
 
   return (
     <div>

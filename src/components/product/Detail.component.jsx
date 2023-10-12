@@ -12,19 +12,11 @@ import { getProductById } from "../../apis/product";
  * @returns {React.FC}
  */
 export const ProductDetail = ({ id }) => {
-  const {
-    data: productData,
-    isError,
-    isLoading,
-  } = useQuery(["product", id], () => getProductById(id));
-
-  if (isLoading) {
-    return <div>로딩중</div>;
-  }
-
-  if (isError) {
-    return <div>에러</div>;
-  }
+  const { data: productData } = useQuery(
+    ["product", id],
+    () => getProductById(id),
+    { suspense: true }
+  );
 
   const {
     name,
