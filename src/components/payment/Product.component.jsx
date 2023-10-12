@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product";
 import { Txt } from "../common/Txt.component";
 import { useAtom } from "jotai";
 import { rentDateAtom } from "../../stores/rent.atom";
 import { Br } from "../common/Br.component";
+import { useGetProductById } from "../../hooks/useProductQuery";
 
 export const PaymoneyProduct = ({ id }) => {
-  const { data: product } = useQuery(
-    ["product", id],
-    () => getProductById(id),
-    { suspense: true }
-  );
+  const { product } = useGetProductById(id);
   const [rentData] = useAtom(rentDateAtom);
 
   return (

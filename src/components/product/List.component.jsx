@@ -1,14 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAllProduct } from "../../apis/product";
 import { Br } from "../common/Br.component";
 import { Txt } from "../common/Txt.component";
 import { ProductItem } from "./Item.component";
 import { Fragment } from "react";
+import { useGetProductAll } from "../../hooks/useProductQuery";
 
 export const ProductList = () => {
-  const { data: products } = useQuery(["allProduct"], getAllProduct, {
-    suspense: true,
-  });
+  const { products } = useGetProductAll();
 
   return (
     <section>
