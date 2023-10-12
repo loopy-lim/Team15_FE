@@ -8,8 +8,7 @@ import { Txt } from "../common/Txt.component";
  * @returns {React.FC}
  */
 export const ProductItem = ({ data }) => {
-  const { id, name, commentCount, location, productImagePath, rentalPrice } =
-    data;
+  const { id, name, review, location, productImagePath, rentalPrice } = data;
 
   return (
     <Link className="py-4 flex gap-4 text-left w-full" to={`/product/${id}`}>
@@ -29,11 +28,11 @@ export const ProductItem = ({ data }) => {
         </div>
         <div className="flex w-full justify-between">
           <Txt typography="h6" colors="secondary">
-            {`${rentalPrice} / 월`}
+            {`${rentalPrice} / 일`}
           </Txt>
           <div className="flex items-center gap-1">
             <Icon type="message" size="small" />
-            <Txt typography="p">{commentCount}</Txt>
+            <Txt typography="p">{review}</Txt>
           </div>
         </div>
       </div>

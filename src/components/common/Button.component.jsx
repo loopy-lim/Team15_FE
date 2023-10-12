@@ -38,10 +38,9 @@ export const Button = ({
       isActive ? colorType[color] : colorType["secondary"],
       className
     )}
-    onClick={isActive && onClick}
+    disabled={!isActive}
+    onClick={onClick}
   >
     {children}
   </button>
 );
-
-

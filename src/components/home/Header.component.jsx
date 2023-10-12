@@ -7,19 +7,19 @@ import { isMobile } from "react-device-detect";
 
 export const HomeHeader = () => {
   return (
-    <div className="h-16">
+    <div className="h-14">
       <div
         className={classnames(
-          "fixed left-0 flex justify-between py-4 border-b bg-white z-40",
+          "fixed left-0 flex justify-between pt-4 pb-2 border-b bg-white z-40",
           BASE_PADDING,
           !isMobile ? `${MOBILE_WIDTH}` : "w-full"
         )}
       >
         <div className="flex gap-4">
           <Menu />
-          <Txt typography="h4">전남대</Txt>
+          <Txt typography="h6">전남대</Txt>
         </div>
-        <Icon type="search" size="large" />
+        <Icon type="search" />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import ReactModal from "react-modal";
 import { Button } from "./Button.component";
 import classnames from "classnames";
 import { Icon } from "./Icon.component";
+import { isMobile } from "react-device-detect";
 
 /**
  * @param {{
@@ -18,8 +19,7 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
     WebkitBackdropFilter: "blur(4px)",
     position: "absolute",
     inset: "0",
-    width: "480px",
-    marginLeft: "1.5rem",
+    width: isMobile ? "w-full" : "480px",
   };
 
   const modalElement = document.getElementById("modal");
@@ -50,7 +50,7 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
 const AlertModal = ({ children, isOpen, onRequestClose, onClose }) => (
   <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
     <div className="text-center my-2 transition-all">{children}</div>
-    <Button className="py-1 w-36 text-sm" onClick={onClose}>
+    <Button size="small" className="w-36 text-sm" onClick={onClose}>
       확인
     </Button>
   </Modal>

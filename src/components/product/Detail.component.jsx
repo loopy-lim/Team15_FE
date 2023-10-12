@@ -52,7 +52,7 @@ export const ProductDetail = ({ id }) => {
       <article className="my-4">
         <Txt typography="h5">{name}</Txt>
         <div className="flex items-baseline justify-between">
-          <Txt typography="h2">{`${rentalPrice} / 월`}</Txt>
+          <Txt typography="h2">{`${rentalPrice} / 일`}</Txt>
           <Txt typography="subtitle">{`정가: ${regularPrice}원~`}</Txt>
         </div>
         <Txt
