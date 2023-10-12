@@ -8,7 +8,7 @@ export const HomePage = () => {
   return (
     <>
       <HomeHeader />
-      <MainContainer hasBottomFulLink={false}>
+      <MainContainer hasBottomFullLink={false}>
         <HomeCarousel />
         <div className="my-8">
           <HomeCategory />
