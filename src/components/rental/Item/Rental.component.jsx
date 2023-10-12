@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
 import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
+import { Link } from "react-router-dom";
 
 /**
  * @param {{
@@ -28,20 +29,18 @@ export const ItemRental = ({ data, dayDiff }) => {
 
   return (
     <div className="flex flex-col gap-2 py-12">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col">
         <div>
-          <Txt typography="subtitle" className="font-bold">
-            대여중
-          </Txt>
-          <Txt typography="subtitle" colors="secondary" className="font-bold">
+          <Txt className="font-bold">대여중</Txt>
+          <Txt colors="secondary" className="font-bold">
             {`(${new Date(data.borrowAt).toLocaleDateString()} ~ ${new Date(
               data.returnAt
             ).toLocaleDateString()})`}
           </Txt>
         </div>
-        <Txt typography="subtitle">
+        <Txt>
           반납까지{" "}
-          <Txt typography="subtitle" colors="prmiary" className="font-bold">
+          <Txt colors="prmiary" className="font-bold">
             {dayDiff}일
           </Txt>{" "}
           남았습니다.
@@ -59,11 +58,13 @@ export const ItemRental = ({ data, dayDiff }) => {
           <Txt>1개</Txt>
         </div>
       </div>
-      <div className="flex px-8 gap-4">
-        <div className="flex-1  px-4"></div>
-        <Button className="flex-1" size="small" color="white">
-          반납하기
-        </Button>
+      <div className="flex gap-4">
+        <div className="flex-1"></div>
+        <Link className="flex-1">
+          <Button className="flex-1" size="small" color="white">
+            반납하기
+          </Button>
+        </Link>
       </div>
     </div>
   );

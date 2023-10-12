@@ -8,7 +8,6 @@ const rental = {
       returnAt: `${new Date(new Date().getTime() + 30 * 60 * 60 * 24 * 1000)}`,
       reviewed: false,
     },
-
     {
       productId: "733d7309-5ab8-47d2-98e6-4843e497418a",
       name: "아이패드",

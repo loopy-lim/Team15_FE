@@ -40,22 +40,18 @@ export const Payment = ({ id }) => {
   const [canPay, setCanPay] = useAtom(canPayByMoney);
 
   useEffect(() => {
-    if (
+    setCanPay(
       !moneyIsLoading &&
-      !moneyIsError &&
-      money.piece >= calculatePrice(rentDate, data.rentalPrice)
-    ) {
-      setCanPay(true);
-    } else {
-      setCanPay(false);
-    }
-  }, [data, money]);
+        !moneyIsError &&
+        money.piece >= calculatePrice(rentDate, data.rentalPrice)
+    );
+  }, [moneyIsLoading, moneyIsError, data, money, rentDate]);
 
-  if (!data && !money && isLoading && moneyIsLoading) {
+  if (!data || !money || isLoading || moneyIsLoading) {
     return <div>loading</div>;
   }
 
-  if (isError && moneyIsError) {
+  if (isError || moneyIsError) {
     return <div>error</div>;
   }
 

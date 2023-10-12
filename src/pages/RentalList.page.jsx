@@ -6,7 +6,7 @@ export const RentalListPage = () => {
   return (
     <>
       <AppBar title="대여내역" to="/" />
-      <MainContainer hasBottomFulLink={false}>
+      <MainContainer hasBottomFullLink={false}>
         <RentalList />
       </MainContainer>
     </>

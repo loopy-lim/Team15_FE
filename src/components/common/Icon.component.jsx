@@ -5,7 +5,7 @@ import { RiHome5Line } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import { CiViewList } from "react-icons/ci";
-import { AiOutlineCamera } from "react-icons/ai";
+import { AiOutlineCamera, AiOutlineStar, AiFillStar } from "react-icons/ai";
 import classnames from "classnames";
 
 const IconSize = {
@@ -34,6 +34,8 @@ export const Icon = ({ type, size = "medium", className }) => {
     viewlist: <CiViewList className={combileClassName} />,
     message: <BiMessageRoundedDetail className={combileClassName} />,
     camera: <AiOutlineCamera className={combileClassName} />,
+    star: <AiOutlineStar className={combileClassName} />,
+    fillStar: <AiFillStar className={combileClassName} />,
   };
 
   return IconType[type];
