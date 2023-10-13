@@ -1,5 +1,4 @@
 import React from 'react';
-import "./KeyPad.css";
 
 export const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
     if (!isOpen) {
@@ -13,14 +12,22 @@ export const KeyPad = ({ isOpen, onClose, onNumberClick }) => {
     };
 
     return (
-        <div className="keypad">
+        <div className="fixed bottom-20 left-4 grid grid-cols-3 gap-10 p-4 bg-gray-200 shadow-md">
             {numbers.map((number) => (
-                <button key={number} className="key" onClick={() => handleNumberClick(number)}>
+                <button
+                    key={number}
+                    className="w-32 h-16 rounded-md text-xl m-0.5 cursor-pointer hover:bg-gray-300"
+                    onClick={() => handleNumberClick(number)}
+                >
                     {number}
                 </button>
             ))}
-            <button className="key clear" onClick={onClose}>x</button>
+            <button
+                className="w-32 h-16 rounded-md text-xl m-0.5 cursor-pointer hover:bg-gray-300 clear:bg-red-500 text-red-500 font-bold"
+                onClick={onClose}
+            >
+                x
+            </button>
         </div>
     );
 };
-
