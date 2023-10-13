@@ -1,11 +1,12 @@
 import { AppBar } from "../components/common/AppBar.component";
 import { ChargeMoney } from "../components/paymoney/ChargeMoney";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import React, { useState } from "react";
 import { MainContainer } from "../components/common/MainContainer.component";
+import { useAtom } from "jotai";
+import { chargeMoney } from "../stores/paymoney.atom";
 
 export const ChargePage = () => {
-  const [number, setNumber] = useState(0);
+  const [money] = useAtom(chargeMoney);
 
   return (
     <>
@@ -21,7 +22,7 @@ export const ChargePage = () => {
           <p>1일(영업일 기준) 내로 입금이 확인되는대로</p>
           <p>페이머니에 충전될 예정입니다. 감사합니다</p>
         </div>
-        <BottomFullLink title="충전하기" isActive={number > 0} />
+        <BottomFullLink title="충전하기" isActive={Number(money) > 0} />
       </MainContainer>
     </>
   );

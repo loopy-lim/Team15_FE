@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { KeyPad } from "./KeyPad";
+import { useAtom } from "jotai";
+import { chargeMoney } from "../../stores/paymoney.atom";
 
 export const ChargeMoney = () => {
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useAtom(chargeMoney);
 
   const onKeyboard = () => {
     setIsKeyboardOpen(true);
