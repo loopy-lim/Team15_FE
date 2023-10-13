@@ -11,7 +11,7 @@ import { useHref, useLinkClickHandler } from "react-router-dom";
  * }} LinkProps
  * @typedef {React.PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement<ButtonProps>>>} LinkPropsWithChildren
  */
-
+// TODO: type이 제대로 지정 안되어 있음
 /**@type {React.ForwardRefExoticComponent<LinkPropsWithChildren & React.RefAttributes<HTMLAnchorElement>>}*/
 export const Link = forwardRef(
   (

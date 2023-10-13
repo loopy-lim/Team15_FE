@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "../apis/product";
+import { getAllProduct, getProductById } from "../apis/product";
 
 /**
  * @param {string} id

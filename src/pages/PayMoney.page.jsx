@@ -11,7 +11,7 @@ export const PayMoneyPage = () => {
     <>
       <AppBar to="/mypage/paymoney" title="페이머니" />
       <MainContainer>
-        <div className="flex flex-col h-full justify-between">
+        <div className="flex flex-col gap-6 h-full">
           <MyMoney />
           <MoneyHistory />
         </div>
