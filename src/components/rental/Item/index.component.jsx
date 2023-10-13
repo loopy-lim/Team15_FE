@@ -15,14 +15,13 @@ export const RentalItem = ({ data }) => {
     returnAt: data.returnAt,
   });
 
-  switch (type) {
-    case "RENTAL":
-      return <ItemRental data={data} dayDiff={dayDiff} />;
-    case "RENTAL_COMPLETE":
-      return <ItemRentalCompelete data={data} />;
-    case "RENTAL_SCHEDULE":
-      return <ItemRentalSchedule data={data} />;
-    default:
-      return <></>;
-  }
+  return type === "RENTAL" ? (
+    <ItemRental data={data} dayDiff={dayDiff} />
+  ) : type === "RENTAL_COMPLETE" ? (
+    <ItemRentalCompelete data={data}></ItemRentalCompelete>
+  ) : type === "RENTAL_SCHEDULE" ? (
+    <ItemRentalSchedule data={data}></ItemRentalSchedule>
+  ) : (
+    <></>
+  );
 };
