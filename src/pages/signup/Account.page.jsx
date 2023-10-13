@@ -1,3 +1,6 @@
+import { BASE_PADDING } from "../../constants";
+import { isIOS, isMobile } from "react-device-detect";
+import classnames from "classnames";
 import { BottomFullLink } from "../../components/common/BottomFullLink.component";
 import {
   InputPassword,
