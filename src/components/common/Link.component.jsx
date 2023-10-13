@@ -2,16 +2,23 @@ import { forwardRef } from "react";
 import { useHref, useLinkClickHandler } from "react-router-dom";
 
 /**
- * @param {{
+ * @typedef {{
  *  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
  *  replace?: boolean
  *  state?: any
  *  target?: string
  *  to: string
- * }}
+ * }} LinkProps
+ * @typedef {React.PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement<ButtonProps>>>} LinkPropsWithChildren
  */
+// TODO: type이 제대로 지정 안되어 있음
+/**@type {React.ForwardRefExoticComponent<LinkPropsWithChildren & React.RefAttributes<HTMLAnchorElement>>}*/
 export const Link = forwardRef(
-  ({ onClick, replace = false, state, target, to, ...rest }, ref) => {
+  (
+    /** @type {LinkPropsWithChildren} */
+    { onClick, replace = false, state, target, to, children, ...props },
+    ref
+  ) => {
     const href = useHref(to);
     const handleClick = useLinkClickHandler(to, {
       replace,
@@ -21,7 +28,7 @@ export const Link = forwardRef(
 
     return (
       <a
-        {...rest}
+        {...props}
         href={href}
         onClick={(event) => {
           onClick?.(event);
@@ -31,7 +38,9 @@ export const Link = forwardRef(
         }}
         ref={ref}
         target={target}
-      />
+      >
+        {children}
+      </a>
     );
   }
 );

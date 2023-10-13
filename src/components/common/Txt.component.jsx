@@ -31,14 +31,12 @@ export const Txt = ({
   colors = "black",
   children,
   className,
-  marginRight,
 }) => {
   return (
     <span
       className={classnames(
         typographyType[typography],
         colorsType[colors],
-        marginRight && `mr-${marginRight}`,
         className
       )}
     >

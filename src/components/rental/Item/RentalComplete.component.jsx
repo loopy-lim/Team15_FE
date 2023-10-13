@@ -1,8 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
-import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
 import { Link } from "react-router-dom";
+import { useGetProductById } from "../../../hooks/useProductQuery";
 
 /**
  * @param {{
@@ -10,21 +9,7 @@ import { Link } from "react-router-dom";
  * }}
  */
 export const ItemRentalCompelete = ({ data }) => {
-  const {
-    data: productData,
-    isError,
-    isLoading,
-  } = useQuery(["product", data.productId], () =>
-    getProductById(data.productId)
-  );
-
-  if (isLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError) {
-    return <div>error</div>;
-  }
+  const { product } = useGetProductById(data.productId);
 
   return (
     <div className="flex flex-col gap-2 py-12">
@@ -40,12 +25,12 @@ export const ItemRentalCompelete = ({ data }) => {
       </div>
       <div className="flex gap-4">
         <div className="flex-1 object-cover aspect-square">
-          <img src={productData.productImagePath[0]} alt={productData.name} />
+          <img src={product.productImagePath[0]} alt={product.name} />
         </div>
         <div className="flex flex-col gap-2 flex-[4_0_0] min-w-max">
           <div className="flex flex-col">
-            <Txt typography="h6">{productData.companyName}</Txt>
-            <Txt>{productData.name}</Txt>
+            <Txt typography="h6">{product.companyName}</Txt>
+            <Txt>{product.name}</Txt>
           </div>
           <Txt>1개</Txt>
         </div>
@@ -57,7 +42,7 @@ export const ItemRentalCompelete = ({ data }) => {
           </Button>
         </Link>
         {data.reviewed ? (
-          <Link className="flex-1" to={`/review/${productData.id}`}>
+          <Link className="flex-1" to={`/review/${product.id}`}>
             <Button size="small" color="white">
               리뷰쓰기
             </Button>

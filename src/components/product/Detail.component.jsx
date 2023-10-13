@@ -2,8 +2,7 @@ import { Br } from "../common/Br.component";
 import { Carousel } from "../common/Carousel.component";
 import { ProductCompany } from "./Company.component";
 import { Txt } from "../common/Txt.component";
-import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product";
+import { useGetProductById } from "../../hooks/useProductQuery";
 
 /**
  * @param {{
@@ -12,19 +11,7 @@ import { getProductById } from "../../apis/product";
  * @returns {React.FC}
  */
 export const ProductDetail = ({ id }) => {
-  const {
-    data: productData,
-    isError,
-    isLoading,
-  } = useQuery(["product", id], () => getProductById(id));
-
-  if (isLoading) {
-    return <div>로딩중</div>;
-  }
-
-  if (isError) {
-    return <div>에러</div>;
-  }
+  const { product } = useGetProductById(id);
 
   const {
     name,
@@ -36,7 +23,7 @@ export const ProductDetail = ({ id }) => {
     companyName,
     productImagePath,
     companyImagePath,
-  } = productData;
+  } = product;
 
   const carouselData = productImagePath.map((src, index) => ({
     img: { src, alt: `${name}${index}` },

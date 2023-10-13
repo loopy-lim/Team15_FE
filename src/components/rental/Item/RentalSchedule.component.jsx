@@ -1,8 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
 import { Txt } from "../../common/Txt.component";
-import { getProductById } from "../../../apis/product";
 import { Button } from "../../common/Button.component";
-import { Link } from "react-router-dom";
+import { Link } from "../../common/Link.component";
+import { useGetProductById } from "../../../hooks/useProductQuery";
 
 /**
  * @param {{
@@ -10,21 +9,7 @@ import { Link } from "react-router-dom";
  * }}
  */
 export const ItemRentalSchedule = ({ data }) => {
-  const {
-    data: productData,
-    isError,
-    isLoading,
-  } = useQuery(["product", data.productId], () =>
-    getProductById(data.productId)
-  );
-
-  if (isLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError) {
-    return <div>error</div>;
-  }
+  const { product } = useGetProductById(data.productId);
 
   return (
     <div className="flex flex-col gap-2 py-12">
