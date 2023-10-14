@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const productData = [
+export const productData = [
   {
     id: 1,
     category: "IT",

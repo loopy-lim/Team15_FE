@@ -2,8 +2,8 @@ import { Txt } from "../common/Txt.component";
 
 const categorys = [
   { title: "IT", imgSrc: "/images/categorys/it.png" },
-  { title: "책", imgSrc: "/images/categorys/book.png" },
-  { title: "양복", imgSrc: "/images/categorys/suit.png" },
+  { title: "도서", imgSrc: "/images/categorys/book.png" },
+  { title: "의류", imgSrc: "/images/categorys/suit.png" },
   { title: "악기", imgSrc: "/images/categorys/instrument.png" },
 ];
 
