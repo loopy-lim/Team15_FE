@@ -30,8 +30,7 @@ export const Txt = ({
   typography = "p",
   colors = "black",
   children,
-  className,
-  marginRight,
+  className
 }) => {
   return (
     <span
