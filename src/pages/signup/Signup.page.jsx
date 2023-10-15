@@ -18,7 +18,6 @@ export const SignupPage = () => {
     if (newName.length > 10) {
       newName = newName.slice(0, 10);
     }
-
     setName(newName);
     setCanNext(isValidName);
   };
