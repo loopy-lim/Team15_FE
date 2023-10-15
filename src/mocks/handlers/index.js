@@ -3,6 +3,7 @@ import { productMocks } from "./product.mocks";
 import { paymentMocks } from "./payment.mocks";
 import { categoryMocks } from "./category.mocks";
 import { rentalMocks } from "./rental.mocks";
+import { reviewMocks } from "./review.mocks";
 
 export const handler = [
   ...userMocks,
@@ -10,4 +11,5 @@ export const handler = [
   ...paymentMocks,
   ...categoryMocks,
   ...rentalMocks,
+  ...reviewMocks,
 ];
