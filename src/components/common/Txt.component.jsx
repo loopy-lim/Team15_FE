@@ -15,6 +15,7 @@ const colorsType = {
   black: "text-black",
   secondary: "text-[#B4B4B4]",
   secondaryLight: "text-[#707070]",
+  prmiary: "text-[#62AB05]",
 };
 
 /**

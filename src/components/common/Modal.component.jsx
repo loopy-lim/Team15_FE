@@ -2,6 +2,7 @@ import ReactModal from "react-modal";
 import { Button } from "./Button.component";
 import classnames from "classnames";
 import { Icon } from "./Icon.component";
+import { isMobile } from "react-device-detect";
 
 /**
  * @param {{
@@ -18,8 +19,8 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
     WebkitBackdropFilter: "blur(4px)",
     position: "absolute",
     inset: "0",
-    width: "480px",
-    marginLeft: "1.5rem",
+    width: isMobile ? "w-full" : "480px",
+    zIndex: "100",
   };
 
   const modalElement = document.getElementById("modal");

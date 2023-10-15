@@ -1,6 +1,5 @@
-/**
- * @returns {Promise<{piece: number}>}
- */
-export const getPaymoney = () => {
-  return Promise.resolve({ piece: 50000 });
+const paymoney = { succes: true, response: { piece: 50000 }, error: null };
+
+export const getPaymoney = async () => {
+  return Promise.resolve(paymoney.response);
 };

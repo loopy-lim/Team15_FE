@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQueries } from "@tanstack/react-query";
 import { getProductById } from "../../apis/product";
 import { useAtom } from "jotai";
 import { rentDateAtom } from "../../stores/rent.atom";
@@ -6,10 +6,14 @@ import { Txt } from "../common/Txt.component";
 import { getPaymoney } from "../../apis/paymoney";
 import { canPayByMoney } from "../../stores/payment.atom";
 import { useEffect } from "react";
-import { differenceInDays } from "date-fns";
+import { differenceInBusinessDays } from "date-fns";
 
+/**
+ * @param {import('react-day-picker').DateRange} rentData
+ * @param {number} rentalPrice
+ */
 const calculatePrice = (rentData, rentalPrice) => {
-  return differenceInDays(rentData.to, rentData.from) * rentalPrice;
+  return differenceInBusinessDays(rentData.to, rentData.from) * rentalPrice;
 };
 
 /**
@@ -18,38 +22,26 @@ const calculatePrice = (rentData, rentalPrice) => {
  * }}
  */
 export const Payment = ({ id }) => {
-  const { data, isError, isLoading } = useQuery(["product", id], () =>
-    getProductById(id)
-  );
+  const [productData, moneyData] = useQueries({
+    queries: [
+      {
+        queryKey: ["product", id],
+        queryFn: () => getProductById(id),
+        suspense: true,
+      },
+      { queryKey: ["money"], queryFn: () => getPaymoney(), suspense: true },
+    ],
+  });
 
-  const {
-    data: money,
-    isError: moneyIsError,
-    isLoading: moneyIsLoading,
-  } = useQuery(["money"], () => getPaymoney());
+  const { data } = productData;
+  const { data: money } = moneyData;
 
   const [rentDate] = useAtom(rentDateAtom);
   const [canPay, setCanPay] = useAtom(canPayByMoney);
 
   useEffect(() => {
-    if (
-      !moneyIsLoading &&
-      !moneyIsError &&
-      money.piece >= calculatePrice(rentDate, data.rentalPrice)
-    ) {
-      setCanPay(true);
-    } else {
-      setCanPay(false);
-    }
-  }, []);
-
-  if (isLoading && moneyIsLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError && moneyIsError) {
-    return <div>error</div>;
-  }
+    setCanPay(money.piece >= calculatePrice(rentDate, data.rentalPrice));
+  }, [data, money, rentDate]);
 
   return (
     <div className="flex flex-col justify-between">

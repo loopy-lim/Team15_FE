@@ -24,7 +24,7 @@ export const PaymentPayButton = () => {
   return (
     <div
       className={classnames(
-        "fixed bottom-0 z-20 bg-white",
+        "fixed bottom-0",
         isMobile
           ? "w-[calc(100%-3rem)] pb-[env(safe-area-inset-bottom)]"
           : "w-[calc(480px-3rem)] pb-4"

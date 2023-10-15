@@ -13,25 +13,26 @@ const colorType = {
 };
 
 /**
- * @param {{
- *    children: React.ReactNode,
- *    className: string,
- *    isActive: boolean,
- *    onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
- *    size: keyof typeof sizeType,
- *    color: keyof typeof colorType,
- *  }}
+ * @typedef {{
+ *  className? string;
+ *  isActive?: boolean;
+ *  size?: keyof typeof sizeType;
+ *  color?: keyof typeof colorType;
+ * }} ButtonProps
+ * @typedef {React.PropsWithChildren<React.ButtonHTMLAttributes<HTMLButtonElement<ButtonProps>>>} ButtonPropsWithChildren
+ *
+ * @param {ButtonPropsWithChildren} props
  */
-
 export const Button = ({
   children,
   className,
   isActive = true,
-  onClick,
   size = "medium",
   color = "primary",
+  ...props
 }) => (
   <button
+    {...props}
     className={classnames(
       "w-full font-bold rounded-md border border-[#62AB05]",
       sizeType[size],
@@ -39,10 +40,7 @@ export const Button = ({
       className
     )}
     disabled={!isActive}
-    onClick={onClick}
   >
     {children}
   </button>
 );
-
-
