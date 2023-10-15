@@ -4,8 +4,11 @@ import { Input } from "../../components/sign/Input.component";
 import { SlidePannels } from "../../components/sign/SlidePannel.component";
 import { SignInformation } from "../../components/sign/Information.component";
 import { MainContainer } from "../../components/common/MainContainer.component";
+import { useState } from "react";
 
 export const SignupPage = () => {
+  const [canNext, useCanNext] = useState(false);
+
   return (
     <MainContainer>
       <div className="mt-20">
@@ -25,7 +28,11 @@ export const SignupPage = () => {
         </Txt>
       </div>
 
-      <BottomFullLink title="다음으로" to={`/signup/account`} />
+      <BottomFullLink
+        title="다음으로"
+        to={`/signup/account`}
+        isActive={canNext}
+      />
     </MainContainer>
   );
 };
