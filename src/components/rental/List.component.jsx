@@ -1,20 +1,31 @@
+import { useQuery } from "@tanstack/react-query";
+import { getAllRental } from "../../apis/rental";
 import { RentalItem } from "./Item/index.component";
 import { Br } from "../common/Br.component";
-import { useGetRentalAll } from "../../hooks/useRentalQuery";
-import { Suspense } from "react";
-import { ErrorBoundary } from "../common/Errorboundary.component";
 
 export const RentalList = () => {
-  const { rental } = useGetRentalAll();
+  const {
+    data: rentalData,
+    isLoading,
+    isError,
+  } = useQuery(["rentalList"], () => getAllRental());
+
+  if (isLoading) {
+    return <div>loading</div>;
+  }
+
+  if (isError) {
+    return <div>error</div>;
+  }
 
   return (
-    <ErrorBoundary>
-      {rental.map((data, index) => (
-        <Suspense key={index} fallback={<div>loading...</div>}>
+    <div>
+      {rentalData.map((data, index) => (
+        <>
           <RentalItem key={data.productId} data={data} />
-          {index !== rental.length - 1 && <Br />}
-        </Suspense>
+          {index !== rentalData.length - 1 && <Br />}
+        </>
       ))}
-    </ErrorBoundary>
+    </div>
   );
 };
