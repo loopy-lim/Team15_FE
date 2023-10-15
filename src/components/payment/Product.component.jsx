@@ -1,12 +1,25 @@
+import { useQuery } from "@tanstack/react-query";
+import { getProductById } from "../../apis/product";
 import { Txt } from "../common/Txt.component";
 import { useAtom } from "jotai";
 import { rentDateAtom } from "../../stores/rent.atom";
 import { Br } from "../common/Br.component";
-import { useGetProductById } from "../../hooks/useProductQuery";
 
 export const PaymoneyProduct = ({ id }) => {
-  const { product } = useGetProductById(id);
+  const {
+    data: product,
+    isError,
+    isLoading,
+  } = useQuery(["product", id], () => getProductById(id));
   const [rentData] = useAtom(rentDateAtom);
+
+  if (isLoading) {
+    return <div>로딩중</div>;
+  }
+
+  if (isError) {
+    return <div>에러</div>;
+  }
 
   return (
     <>

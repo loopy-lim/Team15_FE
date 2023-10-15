@@ -7,8 +7,6 @@ import { canPayByMoney } from "../../stores/payment.atom";
 import { PaymoneyProduct } from "../../components/payment/Product.component";
 import { AnounceCanPayment } from "../../components/payment/AnounceCanPayment.component";
 import { PaymentPayButton } from "../../components/payment/PayButton.component";
-import { Suspense } from "react";
-import { ErrorBoundary } from "../../components/common/Errorboundary.component";
 
 export const PaymentPage = () => {
   const { id } = useParams();
@@ -20,12 +18,10 @@ export const PaymentPage = () => {
       <AppBar to={`/rent/${id}`} title="결제하기" br={true} />
       <MainContainer>
         <div className="flex flex-col h-full justify-between">
-          <ErrorBoundary>
-            <Suspense fallback={<div>loading...</div>}>
-              <PaymoneyProduct id={id} />
-              <Payment id={id} />
-            </Suspense>
-          </ErrorBoundary>
+          <div>
+            <PaymoneyProduct id={id} />
+            <Payment id={id} />
+          </div>
           {!canPay && <AnounceCanPayment />}
         </div>
         <PaymentPayButton />

@@ -1,9 +1,10 @@
-import { BottomFullLink } from "../../components/common/BottomFullLink.component";
-import {
-  InputText,
-  InputPassword,
-} from "../../components/sign/Input.component";
-import { MainContainer } from "../../components/common/MainContainer.component";
+import { BASE_PADDING } from "../constants";
+import { isIOS, isMobile } from "react-device-detect";
+import classnames from "classnames";
+import { BottomFullLink } from "../components/common/BottomFullLink.component";
+import { Txt } from "../components/common/Txt.component";
+import { InputText, InputPassword } from "../components/sign/Input.component";
+import { MainContainer } from "../components/common/MainContainer.component";
 
 export const SigninPage = () => {
   return (
