@@ -5,17 +5,17 @@ import { isIOS, isMobile } from "react-device-detect";
 /**
  * @param {{
  *  children: React.ReactNode
- *  hasBottomFulLink?: boolean
+ *  hasBottomFullLink?: boolean
  * }}
  */
-export const MainContainer = ({ children, hasBottomFulLink = true }) => {
+export const MainContainer = ({ children, hasBottomFullLink = true }) => {
   return (
     <main
       aria-label="main"
       className={classnames(
         "bg-white overflow-auto",
         BASE_PADDING,
-        hasBottomFulLink
+        hasBottomFullLink
           ? isMobile && isIOS
             ? "h-[calc(100vh-10rem-env(safe-area-inset-top))]"
             : "h-[calc(100vh-8.5rem)]"
