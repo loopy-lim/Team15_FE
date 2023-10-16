@@ -1,5 +1,6 @@
 import { isAxiosError } from "axios";
 import { https } from "../functions/axios";
+import { ProductDto } from "./dtos/product.dto";
 
 export const getProductById = async (id) => {
   const product = await https.get(`/product/${id}`);
@@ -20,5 +21,5 @@ export const getAllProduct = async () => {
   if (!products) {
     return [];
   }
-  return products.response;
+  return products.response.map((product) => new ProductDto(product));
 };

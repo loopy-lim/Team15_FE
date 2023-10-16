@@ -1,9 +1,9 @@
 import { useQueries } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product";
+import { getProductById } from "../../apis/product.apis";
 import { useAtom } from "jotai";
 import { rentDateAtom } from "../../stores/rent.atom";
 import { Txt } from "../common/Txt.component";
-import { getPaymoney } from "../../apis/paymoney";
+import { getPaymoney } from "../../apis/paymoney.apis";
 import { canPayByMoney } from "../../stores/payment.atom";
 import { useEffect } from "react";
 import { differenceInBusinessDays } from "date-fns";

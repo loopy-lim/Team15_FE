@@ -15,7 +15,7 @@ https.interceptors.response.use(
     if (resDto.error) {
       window.location.href = "/error/" + resDto.error.status;
     }
-    return response;
+    return response.data;
   },
   (error) => {
     const resDto = error.response.data;

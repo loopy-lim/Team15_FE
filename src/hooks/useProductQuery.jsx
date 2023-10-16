@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllProduct, getProductById } from "../apis/product";
+import { getAllProduct, getProductById } from "../apis/product.apis";
+import { ProductDto } from "../apis/dtos/product.dto";
 
 /**
  * @param {string} id
@@ -17,7 +18,7 @@ export const useGetProductById = (id, config) => {
 
 /**
  * @param {import("@tanstack/react-query").UseQueryOptions} config
- * @return {{products: import("../types/product").product[]}}
+ * @return {{products: ProductDto[]}}
  */
 export const useGetProductAll = (config) => {
   const { data: products } = useQuery(["allProduct"], () => getAllProduct(), {
