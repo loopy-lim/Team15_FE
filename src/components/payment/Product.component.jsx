@@ -18,7 +18,7 @@ export const PaymoneyProduct = ({ id }) => {
           {product.location}
         </Txt>
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <div className="flex gap-2">
           <Txt>대여상품</Txt>
           <Txt typography="h6" className="text-[#979797]">

@@ -40,7 +40,7 @@ export const Payment = ({ id }) => {
   const [canPay, setCanPay] = useAtom(canPayByMoney);
 
   useEffect(() => {
-    setCanPay(money.piece >= calculatePrice(rentDate, data.rentalPrice));
+    setCanPay(money.totalPiece >= calculatePrice(rentDate, data.rentalPrice));
   }, [data, money, rentDate]);
 
   return (
@@ -65,7 +65,7 @@ export const Payment = ({ id }) => {
           <Txt typography="h6" colors="secondaryLight">
             페이머니
           </Txt>
-          <Txt>{`보유 ${money.piece} 원`}</Txt>
+          <Txt>{`보유 ${money.totalPiece} 원`}</Txt>
         </div>
         <div className="flex justify-between">
           <Txt typography="h6" colors="secondaryLight">

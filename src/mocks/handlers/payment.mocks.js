@@ -1,12 +1,12 @@
 import { rest } from "msw";
 
 export const paymentMocks = [
-  rest.get("/payment", (req, res, ctx) => {
+  rest.get("/paymoney", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
         success: true,
-        response: { totalPriece: 50000 },
+        response: { totalPiece: 50000 },
         error: null,
       })
     );

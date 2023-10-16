@@ -19,7 +19,11 @@ export const HomePage = () => {
             </Suspense>
           </ErrorBoundary>
         </div>
-        <ProductList />
+        <ErrorBoundary>
+          <Suspense fallback={<div>loading...</div>}>
+            <ProductList />
+          </Suspense>
+        </ErrorBoundary>
       </MainContainer>
     </>
   );
