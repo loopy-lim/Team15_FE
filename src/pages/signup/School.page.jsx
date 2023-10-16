@@ -10,14 +10,12 @@ export const SchoolPage = () => {
       <div className="mt-20">
         <SlidePannels maxLengh={3} selectedIndex={2} />
       </div>
-
       <div className="flex flex-col items-center">
         <SignInformation title={`당신의 학교를\n알고 싶어요`} />
         <div className="w-3/4">
           <Input />
         </div>
       </div>
-
       <BottomFullLink title="인증하기" to={`/signup/schoolcard`} />
     </MainContainer>
   );

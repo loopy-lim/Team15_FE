@@ -20,7 +20,6 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
     position: "absolute",
     inset: "0",
     width: isMobile ? "w-full" : "480px",
-    zIndex: "100",
   };
 
   const modalElement = document.getElementById("modal");

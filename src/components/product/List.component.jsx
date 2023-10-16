@@ -1,11 +1,24 @@
+import { useQuery } from "@tanstack/react-query";
+import { getAllProduct } from "../../apis/product";
 import { Br } from "../common/Br.component";
 import { Txt } from "../common/Txt.component";
 import { ProductItem } from "./Item.component";
 import { Fragment } from "react";
-import { useGetProductAll } from "../../hooks/useProductQuery";
 
 export const ProductList = () => {
-  const { products } = useGetProductAll();
+  const {
+    data: products,
+    isError,
+    isLoading,
+  } = useQuery(["allProduct"], getAllProduct);
+
+  if (isLoading) {
+    return <div>로딩중</div>;
+  }
+
+  if (isError) {
+    return <div>에러</div>;
+  }
 
   return (
     <section>
