@@ -35,37 +35,49 @@ export const productData = [
 
 export const productMocks = [
   rest.get("/product", (req, res, ctx) => {
-    return {
-      success: true,
-      response: productData,
-      error: null,
-    };
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: productData,
+        error: null,
+      })
+    );
   }),
   rest.get("/product/:id", (req, res, ctx) => {
     const { id } = req.params;
     const product = productData.find((product) => product.id === Number(id));
 
-    return {
-      success: true,
-      response: product,
-      error: null,
-    };
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: product,
+        error: null,
+      })
+    );
   }),
   rest.get("/product/:id/rent", (req, res, ctx) => {
     const { id } = req.params;
     const product = productData.find((product) => product.id === Number(id));
 
-    return {
-      success: true,
-      response: product,
-      error: null,
-    };
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: product,
+        error: null,
+      })
+    );
   }),
   rest.post("/product", (req, res, ctx) => {
-    return {
-      success: true,
-      response: null,
-      error: null,
-    };
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: null,
+        error: null,
+      })
+    );
   }),
 ];
