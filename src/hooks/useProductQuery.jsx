@@ -5,7 +5,7 @@ import { ProductDto } from "../apis/dtos/product.dto";
 /**
  * @param {string} id
  * @param {import("@tanstack/react-query").UseQueryOptions} config
- * @return {{product: import("../types/product").product}}
+ * @return {{product: ProductDto}}
  */
 export const useGetProductById = (id, config) => {
   const { data: product } = useQuery(

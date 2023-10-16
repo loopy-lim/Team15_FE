@@ -15,11 +15,15 @@ export const ProductItem = ({ data }) => {
       to={`/product/${data.id}`}
     >
       <div className="h-20 w-20 overflow-hidden">
-        <img src={data.productImagePath} alt={data.name} />
+        <img
+          className="aspect-square w-full h-full object-cover"
+          src={data.productImagePath[0]}
+          alt={data.productName}
+        />
       </div>
       <div className="flex flex-col h-20 justify-between flex-1">
         <div className="flex flex-col gap-1 w-full truncate">
-          <Txt typography="h6">{data.name}</Txt>
+          <Txt typography="h6">{data.productName}</Txt>
           <Txt
             typography="subtitle"
             colors="secondaryLight"

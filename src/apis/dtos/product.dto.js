@@ -9,7 +9,7 @@ export class ProductDto {
     review,
   }) {
     this.id = id;
-    this.name = productName;
+    this.productName = productName;
     this.productImagePath = productImagePath;
     this.location = location;
     this.rentalPrice = rentalPrice;
