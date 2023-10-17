@@ -1,0 +1,6 @@
+.home-carousel {
+  --swiper-navigation-size: 1.5rem;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 10px;
+  --swiper-theme-color: #0C0C0C;
+}
