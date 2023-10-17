@@ -3,6 +3,7 @@ export class ProductDto {
     id,
     productName,
     rentalPrice,
+    regularPrice,
     location,
     productImagePath,
     description,
@@ -16,6 +17,7 @@ export class ProductDto {
     this.productImagePath = productImagePath;
     this.location = location;
     this.rentalPrice = rentalPrice;
+    this.regularPrice = regularPrice;
     this.description = description;
     this.review = review;
     this.content = content;

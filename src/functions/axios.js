@@ -21,18 +21,18 @@ https.interceptors.response.use(
     const resDto = error.response.data;
 
     if (error.response.status === 500) {
-      console.error(resDto.error?.message);
+      console.error(resDto.error);
       return error;
     }
 
     if (error.response.status === 401) {
-      alert(resDto.error?.message);
-      console.error(resDto.error?.message);
+      alert(resDto.error);
+      console.error(resDto.error);
       return error;
     }
     if (error.response.status === 400) {
-      alert(resDto.error?.message);
-      console.error(resDto.error?.message);
+      alert(resDto.error);
+      console.error(resDto.error);
       return error;
     }
 
