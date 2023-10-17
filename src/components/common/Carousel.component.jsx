@@ -25,7 +25,7 @@ export const Carousel = ({ data: carouselData }) => {
       navigation={true}
       modules={[Pagination, Navigation]}
     >
-      {carouselData.map((data) => (
+      {carouselData?.map((data) => (
         <SwiperSlide key={data.img.alt}>
           <img {...data.img} />
         </SwiperSlide>

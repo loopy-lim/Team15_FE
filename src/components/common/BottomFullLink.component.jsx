@@ -29,7 +29,7 @@ export const BottomFullLink = ({
           : "w-[calc(480px-3rem)] pb-4"
       )}
     >
-      {br && <Br className="py-0 pb-3" />}
+      {br && <Br className="py-0 pb-3 bg-white" />}
       <Link to={to} onClick={onClick}>
         <Button isActive={isActive}>{title}</Button>
       </Link>

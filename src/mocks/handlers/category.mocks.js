@@ -55,7 +55,7 @@ export const categoryMocks = [
         response: productData.filter(
           (product) =>
             product.category ===
-            category.filter((category) => category.id === req.params.id)[0]
+            category.filter((category) => `${category.id}` === req.params.id)[0]
               .categoryName
         ),
         error: null,

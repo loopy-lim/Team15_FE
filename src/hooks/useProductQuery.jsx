@@ -1,5 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { getAllProduct, getProductById } from "../apis/product.apis";
+import {
+  getAllProduct,
+  getProductByCategory,
+  getProductById,
+} from "../apis/product.apis";
 import { ProductDto } from "../apis/dtos/product.dto";
 
 /**
@@ -25,5 +29,19 @@ export const useGetProductAll = (config) => {
     ...config,
     suspense: true,
   });
+  return { products };
+};
+
+/**
+ * @param {string} category
+ * @param {import("@tanstack/react-query").UseQueryOptions} config
+ * @return {{products: ProductDto[]}}
+ */
+export const useGetProductByCategory = (category, config) => {
+  const { data: products } = useQuery(
+    ["product", category],
+    () => getProductByCategory(category),
+    { ...config, suspense: true }
+  );
   return { products };
 };

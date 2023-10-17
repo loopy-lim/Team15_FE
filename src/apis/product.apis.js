@@ -17,3 +17,11 @@ export const getAllProduct = async () => {
   }
   return products.response.map((product) => new ProductDto(product));
 };
+
+export const getProductByCategory = async (category) => {
+  const products = await https.get(`/category/${category}`);
+  if (isAxiosError(products) && products.response?.status === 404) {
+    window.location.href = "/error/404";
+  }
+  return products.response.map((product) => new ProductDto(product));
+};
