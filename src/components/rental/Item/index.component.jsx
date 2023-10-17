@@ -1,3 +1,4 @@
+import { RentalDto } from "../../../apis/dtos/rental.dto";
 import { RENTAL_TYPE, getRentalType } from "../../../functions/rental";
 import { ItemRental } from "./Rental.component";
 import { ItemRentalCompelete } from "./RentalComplete.component";
@@ -6,7 +7,7 @@ import { ItemRentalSchedule } from "./RentalSchedule.component";
 /**
  * @param {{
  *  type: {type: keyof typeof RENTAL_TYPE, dayDiff?: number}
- *  data: import("../../../types/rental").rentalItem
+ *  data: RentalDto
  * }}
  */
 export const RentalItem = ({ data }) => {

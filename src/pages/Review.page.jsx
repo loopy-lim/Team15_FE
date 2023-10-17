@@ -8,6 +8,7 @@ import { reviewScore, reviewText } from "../stores/review.atom";
 import { Modal } from "../components/common/Modal.component";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useCreateReview } from "../hooks/useReviewQuery";
 
 export const ReviewPage = () => {
   const { productId } = useParams();
@@ -16,9 +17,21 @@ export const ReviewPage = () => {
   const [text, setText] = useAtom(reviewText);
   const [score, setScore] = useAtom(reviewScore);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { mutationReview } = useCreateReview(productId, {
+    star: score,
+    content: text,
+  });
+
   const closeModalOpen = () => {
     navigate("/");
     setIsModalOpen(false);
+  };
+
+  const onReviewSubmit = () => {
+    setIsModalOpen(true);
+    mutationReview();
+    setText("");
+    setScore(0);
   };
 
   return (
@@ -29,11 +42,7 @@ export const ReviewPage = () => {
         <BottomFullLink
           title="리뷰 남기기"
           isActive={text != "" && score !== 0}
-          onClick={() => {
-            setIsModalOpen(true);
-            setText("");
-            setScore(0);
-          }}
+          onClick={onReviewSubmit}
         />
         <Modal.Alert
           isOpen={isModalOpen}

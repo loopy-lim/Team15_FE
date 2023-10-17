@@ -5,14 +5,14 @@ import { Suspense } from "react";
 import { ErrorBoundary } from "../common/Errorboundary.component";
 
 export const RentalList = () => {
-  const { rental } = useGetRentalAll();
+  const { rentals } = useGetRentalAll();
 
   return (
     <ErrorBoundary>
-      {rental.map((data, index) => (
+      {rentals.map((data, index) => (
         <Suspense key={index} fallback={<div>loading...</div>}>
           <RentalItem key={data.productId} data={data} />
-          {index !== rental.length - 1 && <Br />}
+          {index !== rentals.length - 1 && <Br />}
         </Suspense>
       ))}
     </ErrorBoundary>

@@ -2,10 +2,11 @@ import { Txt } from "../../common/Txt.component";
 import { Button } from "../../common/Button.component";
 import { Link } from "react-router-dom";
 import { useGetProductById } from "../../../hooks/useProductQuery";
+import { RentalDto } from "../../../apis/dtos/rental.dto";
 
 /**
  * @param {{
- *  data: import("../../../types/rental").rentalItem
+ *  data: RentalDto
  * }}
  */
 export const ItemRentalCompelete = ({ data }) => {

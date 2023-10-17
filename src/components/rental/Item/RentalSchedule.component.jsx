@@ -2,10 +2,11 @@ import { Txt } from "../../common/Txt.component";
 import { Button } from "../../common/Button.component";
 import { Link } from "../../common/Link.component";
 import { useGetProductById } from "../../../hooks/useProductQuery";
+import { RentalDto } from "../../../apis/dtos/rental.dto";
 
 /**
  * @param {{
- *  data: import("../../../types/rental").rentalItem
+ *  data: RentalDto
  * }}
  */
 export const ItemRentalSchedule = ({ data }) => {
@@ -25,12 +26,12 @@ export const ItemRentalSchedule = ({ data }) => {
       </div>
       <div className="flex gap-4">
         <div className="flex-1 object-cover aspect-square">
-          <img src={productData.productImagePath[0]} alt={productData.name} />
+          <img src={product.productImagePath[0]} alt={product.name} />
         </div>
         <div className="flex flex-col gap-2 flex-[4_0_0] min-w-max">
           <div className="flex flex-col">
-            <Txt typography="h6">{productData.companyName}</Txt>
-            <Txt>{productData.name}</Txt>
+            <Txt typography="h6">{product.companyName}</Txt>
+            <Txt>{product.name}</Txt>
           </div>
           <Txt>1개</Txt>
         </div>
