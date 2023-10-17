@@ -28,7 +28,7 @@ export const PaymentPage = () => {
               </Suspense>
             </ErrorBoundary>
           </div>
-          {!canPay && <AnounceCanPayment />}
+          {!canPay && <AnounceCanPayment productId={id} />}
         </div>
         <PaymentPayButton />
       </MainContainer>

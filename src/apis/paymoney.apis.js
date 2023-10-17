@@ -10,3 +10,22 @@ export const getPaymoney = async () => {
 
   return new MoneyDto(paymoney.response);
 };
+
+/**
+ * @param {string} productId
+ * @param {{
+ *  startAt: Date
+ *  endAt: Date
+ * }} param1
+ */
+export const createRental = async (productId, { startAt, endAt }) => {
+  const paymoney = await https.post(`/paymoney/${productId}` / create, {
+    startAt,
+    endAt,
+  });
+  if (isAxiosError(paymoney) && paymoney.response?.status === 404) {
+    window.location.href = "/error/404";
+  }
+
+  return new MoneyDto(paymoney.response);
+};
