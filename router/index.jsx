@@ -4,8 +4,9 @@ import { HomePage } from "../src/pages/Home.page";
 import { PayMoneyPage } from "../src/pages/PayMoney.page";
 import { MyPage } from "../src/pages/My.page";
 import { ChargePage } from "../src/pages/Charge.page";
-import productRouter from "./product.router";
 import { RentalListPage } from "../src/pages/RentalList.page";
+import { ReviewPage } from "../src/pages/Review.page";
+import productRouter from "./product.router";
 import signRouter from "./sign.router";
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/rental",
     element: <RentalListPage />,
+  },
+  {
+    path: "/review/:productId",
+    element: <ReviewPage />,
   },
 ]);
 

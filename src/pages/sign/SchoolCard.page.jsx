@@ -11,6 +11,7 @@ export const SchoolCardPage = () => {
       <div className="mt-20">
         <SlidePannels maxLengh={3} selectedIndex={2} />
       </div>
+
       <div className="flex flex-col items-center">
         <SignInformation title={`당신의 학교를\n알고 싶어요`} />
         <div class="w-80 h-44 border-2 border-[#62AB05] rounded-xl"></div>
@@ -21,6 +22,7 @@ export const SchoolCardPage = () => {
           학생증을 촬영해주세요
         </Txt>
       </div>
+
       <BottomFullLink title="다음으로" to={`/`} />
     </MainContainer>
   );

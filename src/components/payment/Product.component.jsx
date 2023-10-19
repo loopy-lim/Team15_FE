@@ -1,25 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product";
 import { Txt } from "../common/Txt.component";
 import { useAtom } from "jotai";
 import { rentDateAtom } from "../../stores/rent.atom";
 import { Br } from "../common/Br.component";
+import { useGetProductById } from "../../hooks/useProductQuery";
 
 export const PaymoneyProduct = ({ id }) => {
-  const {
-    data: product,
-    isError,
-    isLoading,
-  } = useQuery(["product", id], () => getProductById(id));
+  const { product } = useGetProductById(id);
   const [rentData] = useAtom(rentDateAtom);
-
-  if (isLoading) {
-    return <div>로딩중</div>;
-  }
-
-  if (isError) {
-    return <div>에러</div>;
-  }
 
   return (
     <>
@@ -31,7 +18,7 @@ export const PaymoneyProduct = ({ id }) => {
           {product.location}
         </Txt>
       </div>
-      <div>
+      <div className="flex flex-col gap-4">
         <div className="flex gap-2">
           <Txt>대여상품</Txt>
           <Txt typography="h6" className="text-[#979797]">

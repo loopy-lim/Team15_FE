@@ -2,10 +2,13 @@ import { Br } from "../common/Br.component";
 import { Txt } from "../common/Txt.component";
 import { ProductItem } from "./Item.component";
 import { Fragment } from "react";
-import { useGetProductAll } from "../../hooks/useProductQuery";
+import { useGetProductByCategory } from "../../hooks/useProductQuery";
 
-export const ProductList = () => {
-  const { products } = useGetProductAll();
+/**
+ * @param {string} category
+ */
+export const ProductListByCategory = ({ category }) => {
+  const { products } = useGetProductByCategory(category);
 
   return (
     <section>

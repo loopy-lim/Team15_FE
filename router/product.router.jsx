@@ -1,6 +1,7 @@
 import { ProductDetailPage } from "../src/pages/product/ProductDetail.page";
 import { RentPeriodPage } from "../src/pages/product/ProductRent.page";
 import { PaymentPage } from "../src/pages/product/Payment.page";
+import { ProductCategoryPage } from "../src/pages/product/Category.page";
 
 const productRouter = [
   {
@@ -14,6 +15,10 @@ const productRouter = [
   {
     path: "/payment/:id",
     element: <PaymentPage />,
+  },
+  {
+    path: "/product/category/:id",
+    element: <ProductCategoryPage />,
   },
 ];
 

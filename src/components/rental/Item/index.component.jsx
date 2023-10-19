@@ -1,3 +1,4 @@
+import { RentalDto } from "../../../apis/dtos/rental.dto";
 import { RENTAL_TYPE, getRentalType } from "../../../functions/rental";
 import { ItemRental } from "./Rental.component";
 import { ItemRentalCompelete } from "./RentalComplete.component";
@@ -6,7 +7,7 @@ import { ItemRentalSchedule } from "./RentalSchedule.component";
 /**
  * @param {{
  *  type: {type: keyof typeof RENTAL_TYPE, dayDiff?: number}
- *  data: import("../../../types/rental").rentalItem
+ *  data: RentalDto
  * }}
  */
 export const RentalItem = ({ data }) => {
@@ -15,13 +16,14 @@ export const RentalItem = ({ data }) => {
     returnAt: data.returnAt,
   });
 
-  return type === "RENTAL" ? (
-    <ItemRental data={data} dayDiff={dayDiff} />
-  ) : type === "RENTAL_COMPLETE" ? (
-    <ItemRentalCompelete data={data}></ItemRentalCompelete>
-  ) : type === "RENTAL_SCHEDULE" ? (
-    <ItemRentalSchedule data={data}></ItemRentalSchedule>
-  ) : (
-    <></>
-  );
+  switch (type) {
+    case "RENTAL":
+      return <ItemRental data={data} dayDiff={dayDiff} />;
+    case "RENTAL_COMPLETE":
+      return <ItemRentalCompelete data={data} />;
+    case "RENTAL_SCHEDULE":
+      return <ItemRentalSchedule data={data} />;
+    default:
+      return <></>;
+  }
 };
