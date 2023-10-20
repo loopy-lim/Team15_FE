@@ -34,7 +34,9 @@ export const ChargePage = () => {
           <p>1일(영업일 기준) 내로 입금이 확인되는대로</p>
           <p>페이머니에 충전될 예정입니다. 감사합니다</p>
         </div>
-        <BottomFullLink title="충전하기" isActive={Number(money) > 0}
+        <BottomFullLink
+          title="충전하기"
+          isActive={Number(money) > 0}
           onClick={() => setIsModalAlertOpen((prev) => !prev)}
         />
         <Modal.Alert
