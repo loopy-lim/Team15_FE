@@ -1,8 +1,7 @@
 # Build stage
 FROM krmp-d2hub-idock.9rum.cc/goorm/node:16 AS build
 WORKDIR /usr/src/app
-COPY krampoline/package*.json ./
-COPY krampoline/ ./
+COPY . /usr/src/app
 RUN npm install --global pnpm
 RUN corepack enable
 RUN pnpm install --frozen-lockfile
