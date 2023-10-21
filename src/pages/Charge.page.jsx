@@ -1,9 +1,9 @@
-import { AppBar } from "../components/common/AppBar.component";
-import { ChargeMoney } from "../components/paymoney/ChargeMoney";
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { MainContainer } from "../components/common/MainContainer.component";
 import { useAtom } from "jotai";
-import { chargeMoney } from "../stores/paymoney.atom";
+import { AppBar } from "../components/common/AppBar.component.jsx";
+import { ChargeMoney } from "../components/paymoney/ChargeMoney.component.jsx";
+import { BottomFullLink } from "../components/common/BottomFullLink.component.jsx";
+import { MainContainer } from "../components/common/MainContainer.component.jsx";
+import { chargeMoney } from "../stores/paymoney.atom.js";
 
 export const ChargePage = () => {
   const [money] = useAtom(chargeMoney);

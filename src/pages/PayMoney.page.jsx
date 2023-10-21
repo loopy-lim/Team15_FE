@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { AppBar } from "../components/common/AppBar.component";
-import { MainContainer } from "../components/common/MainContainer.component";
-import { MyMoney } from "../components/paymoney/MyMoney";
-import { MoneyHistory } from "../components/paymoney/MoneyHistory";
+import { AppBar } from "../components/common/AppBar.component.jsx";
+import { MainContainer } from "../components/common/MainContainer.component.jsx";
+import { MyMoney } from "../components/paymoney/MyMoney.component.jsx";
+import { MoneyHistory } from "../components/paymoney/MoneyHistory.component.jsx";
 
 export const PayMoneyPage = () => {
   const { id } = useParams();

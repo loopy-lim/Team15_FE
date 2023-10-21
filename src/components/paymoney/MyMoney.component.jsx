@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Txt } from "../common/Txt.component";
-import { Modal } from "../common/Modal.component";
-import { Link } from "../common/Link.component";
+import { Txt } from "../common/Txt.component.jsx";
+import { Modal } from "../common/Modal.component.jsx";
+import { Link } from "../common/Link.component.jsx";
 
 export const MyMoney = () => {
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);

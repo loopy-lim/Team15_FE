@@ -1,8 +1,8 @@
 import { isMobile } from "react-device-detect";
-import { Br } from "../common/Br.component";
-import { Button } from "../common/Button.component";
 import classnames from "classnames";
-import { Link } from "./Link.component";
+import { Br } from "../common/Br.component.jsx";
+import { Button } from "../common/Button.component.jsx";
+import { Link } from "./Link.component.jsx";
 
 /**
  * @param {{

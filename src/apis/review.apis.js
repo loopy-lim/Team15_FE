@@ -1,4 +1,4 @@
-import { https } from "../functions/axios";
+import { https } from "../functions/axios.js";
 
 export const createReview = async (productId, { star, content }) => {
   const review = await https.get(`/review/${productId}`, { star, content });

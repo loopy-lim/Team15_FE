@@ -1,8 +1,8 @@
-import { RentalItem } from "./Item/index.component";
-import { Br } from "../common/Br.component";
-import { useGetRentalAll } from "../../hooks/useRentalQuery";
 import { Suspense } from "react";
-import { ErrorBoundary } from "../common/Errorboundary.component";
+import { RentalItem } from "./Item/index.component.jsx";
+import { Br } from "../common/Br.component.jsx";
+import { useGetRentalAll } from "../../hooks/useRentalQuery.jsx";
+import { ErrorBoundary } from "../common/Errorboundary.component.jsx";
 
 export const RentalList = () => {
   const { rentals } = useGetRentalAll();

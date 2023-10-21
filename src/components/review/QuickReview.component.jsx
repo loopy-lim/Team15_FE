@@ -1,6 +1,6 @@
 import { useSetAtom } from "jotai";
-import { Txt } from "../common/Txt.component";
-import { reviewText } from "../../stores/review.atom";
+import { Txt } from "../common/Txt.component.jsx";
+import { reviewText } from "../../stores/review.atom.js";
 
 const quickReviewList = [
   "🧺 물건 잘 사용했습니다 !",

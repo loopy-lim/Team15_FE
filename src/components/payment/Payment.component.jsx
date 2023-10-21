@@ -1,12 +1,12 @@
-import { useQueries } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product.apis";
-import { useAtom } from "jotai";
-import { rentDateAtom } from "../../stores/rent.atom";
-import { Txt } from "../common/Txt.component";
-import { getPaymoney } from "../../apis/paymoney.apis";
-import { canPayByMoney } from "../../stores/payment.atom";
 import { useEffect } from "react";
+import { useQueries } from "@tanstack/react-query";
 import { differenceInBusinessDays } from "date-fns";
+import { useAtom } from "jotai";
+import { getProductById } from "../../apis/product.apis.js";
+import { rentDateAtom } from "../../stores/rent.atom.js";
+import { getPaymoney } from "../../apis/paymoney.apis.js";
+import { canPayByMoney } from "../../stores/payment.atom.js";
+import { Txt } from "../common/Txt.component.jsx";
 
 /**
  * @param {import('react-day-picker').DateRange} rentData

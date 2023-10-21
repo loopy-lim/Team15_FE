@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { Txt } from "../common/Txt.component";
+import { Txt } from "../common/Txt.component.jsx";
 
 /**
  * @param {{

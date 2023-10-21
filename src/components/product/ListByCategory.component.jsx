@@ -1,8 +1,8 @@
-import { Br } from "../common/Br.component";
-import { Txt } from "../common/Txt.component";
-import { ProductItem } from "./Item.component";
 import { Fragment } from "react";
-import { useGetProductByCategory } from "../../hooks/useProductQuery";
+import { Br } from "../common/Br.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import { ProductItem } from "./Item.component.jsx";
+import { useGetProductByCategory } from "../../hooks/useProductQuery.jsx";
 
 /**
  * @param {string} category

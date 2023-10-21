@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { KeyPad } from "./KeyPad";
+import { useState } from "react";
 import { useAtom } from "jotai";
-import { chargeMoney } from "../../stores/paymoney.atom";
+import { KeyPad } from "./KeyPad.component.jsx";
+import { chargeMoney } from "../../stores/paymoney.atom.js";
 
 export const ChargeMoney = () => {
   const [isKeyboardOpen, setIsKeyboardOpen] = useState(false);

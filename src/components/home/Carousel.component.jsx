@@ -1,4 +1,4 @@
-import { Carousel } from "../common/Carousel.component";
+import { Carousel } from "../common/Carousel.component.jsx";
 
 export const HomeCarousel = () => {
   const carouselData = [

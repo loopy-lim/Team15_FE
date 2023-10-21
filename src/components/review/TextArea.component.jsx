@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { Txt } from "../common/Txt.component";
 import classnames from "classnames";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAtom } from "jotai";
-import { reviewText } from "../../stores/review.atom";
+import { Txt } from "../common/Txt.component.jsx";
+import { reviewText } from "../../stores/review.atom.js";
 
 export const ReviewTextArea = () => {
   const [isOverText, setIsOverText] = useState(false);
