@@ -1,14 +1,13 @@
-import { useParams } from "react-router-dom";
-import { AppBar } from "../components/common/AppBar.component";
-import { MainContainer } from "../components/common/MainContainer.component";
-import { Review } from "../components/review/Review.component";
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { useAtom } from "jotai";
-import { reviewScore, reviewText } from "../stores/review.atom";
-import { Modal } from "../components/common/Modal.component";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useCreateReview } from "../hooks/useReviewQuery";
+import { useAtom } from "jotai";
+import { AppBar } from "../components/common/AppBar.component.jsx";
+import { MainContainer } from "../components/common/MainContainer.component.jsx";
+import { Review } from "../components/review/Review.component.jsx";
+import { BottomFullLink } from "../components/common/BottomFullLink.component.jsx";
+import { reviewScore, reviewText } from "../stores/review.atom.js";
+import { Modal } from "../components/common/Modal.component.jsx";
+import { useCreateReview } from "../hooks/useReviewQuery.jsx";
 
 export const ReviewPage = () => {
   const { productId } = useParams();

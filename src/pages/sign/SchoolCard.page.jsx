@@ -1,9 +1,9 @@
-import { BottomFullLink } from "../../components/common/BottomFullLink.component";
-import { Txt } from "../../components/common/Txt.component";
-import { SlidePannels } from "../../components/sign/SlidePannel.component";
-import { MainContainer } from "../../components/common/MainContainer.component";
-import { SignInformation } from "../../components/sign/Information.component";
-import { Icon } from "../../components/common/Icon.component";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component.jsx";
+import { Txt } from "../../components/common/Txt.component.jsx";
+import { SlidePannels } from "../../components/sign/SlidePannel.component.jsx";
+import { MainContainer } from "../../components/common/MainContainer.component.jsx";
+import { SignInformation } from "../../components/sign/Information.component.jsx";
+import { Icon } from "../../components/common/Icon.component.jsx";
 
 export const SchoolCardPage = () => {
   return (

@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
-import { Icon } from "../common/Icon.component";
-import { reviewScore } from "../../stores/review.atom";
+import { Icon } from "../common/Icon.component.jsx";
+import { reviewScore } from "../../stores/review.atom.js";
 
 /**
  * @param {{

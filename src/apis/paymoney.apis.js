@@ -1,6 +1,6 @@
 import { isAxiosError } from "axios";
-import { https } from "../functions/axios";
-import { MoneyDto } from "./dtos/money.dto";
+import { https } from "../functions/axios.js";
+import { MoneyDto } from "./dtos/money.dto.js";
 
 export const getPaymoney = async () => {
   const paymoney = await https.get("/paymoney");

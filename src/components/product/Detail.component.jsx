@@ -1,8 +1,8 @@
-import { Br } from "../common/Br.component";
-import { Carousel } from "../common/Carousel.component";
-import { ProductCompany } from "./Company.component";
-import { Txt } from "../common/Txt.component";
-import { useGetProductById } from "../../hooks/useProductQuery";
+import { Br } from "../common/Br.component.jsx";
+import { Carousel } from "../common/Carousel.component.jsx";
+import { ProductCompany } from "./Company.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import { useGetProductById } from "../../hooks/useProductQuery.jsx";
 
 /**
  * @param {{

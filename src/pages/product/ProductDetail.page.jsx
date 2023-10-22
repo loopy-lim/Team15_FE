@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import { ProductDetail } from "../../components/product/Detail.component";
-import { AppBar } from "../../components/common/AppBar.component";
-import { BottomFullLink } from "../../components/common/BottomFullLink.component";
-import { MainContainer } from "../../components/common/MainContainer.component";
-import { ErrorBoundary } from "../../components/common/Errorboundary.component";
+import { ProductDetail } from "../../components/product/Detail.component.jsx";
+import { AppBar } from "../../components/common/AppBar.component.jsx";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component.jsx";
+import { MainContainer } from "../../components/common/MainContainer.component.jsx";
+import { ErrorBoundary } from "../../components/common/Errorboundary.component.jsx";
 import { Suspense } from "react";
 
 export const ProductDetailPage = () => {

@@ -1,8 +1,8 @@
-import { Txt } from "../../common/Txt.component";
-import { Button } from "../../common/Button.component";
-import { Link } from "../../common/Link.component";
-import { useGetProductById } from "../../../hooks/useProductQuery";
-import { RentalDto } from "../../../apis/dtos/rental.dto";
+import { Txt } from "../../common/Txt.component.jsx";
+import { Button } from "../../common/Button.component.jsx";
+import { Link } from "../../common/Link.component.jsx";
+import { useGetProductById } from "../../../hooks/useProductQuery.jsx";
+import { RentalDto } from "../../../apis/dtos/rental.dto.js";
 
 /**
  * @param {{

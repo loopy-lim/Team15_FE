@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper/modules";
-import classnames from "classnames";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
@@ -9,7 +8,7 @@ import "./custom-carousel.css";
 /**
  * @param {{
  *  data: {
- *    img: React.ImgHTMLAttributes<HTMLImageElement
+ *    img: React.ImgHTMLAttributes<HTMLImageElement>
  *  }[]
  * }}
  */

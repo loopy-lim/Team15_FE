@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { createReview } from "../apis/review.apis";
+import { createReview } from "../apis/review.apis.js";
 
 /**
  * @param {string} productId

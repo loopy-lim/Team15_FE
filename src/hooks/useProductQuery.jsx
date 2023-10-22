@@ -3,8 +3,8 @@ import {
   getAllProduct,
   getProductByCategory,
   getProductById,
-} from "../apis/product.apis";
-import { ProductDto } from "../apis/dtos/product.dto";
+} from "../apis/product.apis.js";
+import { ProductDto } from "../apis/dtos/product.dto.js";
 
 /**
  * @param {string} id

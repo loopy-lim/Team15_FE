@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Button } from "../components/common/Button.component";
-import { Icon } from "../components/common/Icon.component";
-import { Txt } from "../components/common/Txt.component";
-import { Modal } from "../components/common/Modal.component";
+import { Button } from "../components/common/Button.component.jsx";
+import { Icon } from "../components/common/Icon.component.jsx";
+import { Txt } from "../components/common/Txt.component.jsx";
+import { Modal } from "../components/common/Modal.component.jsx";
 
 export const TestPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

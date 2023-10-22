@@ -1,7 +1,7 @@
-import { Txt } from "../common/Txt.component";
-import { ReviewStars } from "./Stars.component";
-import { QuickReview } from "./QuickReview.component";
-import { ReviewTextArea } from "./TextArea.component";
+import { Txt } from "../common/Txt.component.jsx";
+import { ReviewStars } from "./Stars.component.jsx";
+import { QuickReview } from "./QuickReview.component.jsx";
+import { ReviewTextArea } from "./TextArea.component.jsx";
 
 export const Review = ({ productId }) => {
   return (
