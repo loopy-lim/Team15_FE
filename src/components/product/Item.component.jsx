@@ -1,38 +1,44 @@
 import { Link } from "react-router-dom";
 import { Icon } from "../common/Icon.component";
 import { Txt } from "../common/Txt.component";
+import { ProductDto } from "../../apis/dtos/product.dto";
 
 /**
  * @param {object} props
- * @param {import("../../types/product").product} props.data
+ * @param {ProductDto} props.data
  * @returns {React.FC}
  */
 export const ProductItem = ({ data }) => {
-  const { id, name, review, location, productImagePath, rentalPrice } = data;
-
   return (
-    <Link className="py-4 flex gap-4 text-left w-full" to={`/product/${id}`}>
+    <Link
+      className="py-4 flex gap-4 text-left w-full"
+      to={`/product/${data.id}`}
+    >
       <div className="h-20 w-20 overflow-hidden">
-        <img src={productImagePath[0]} alt={name} />
+        <img
+          className="aspect-square w-full h-full object-cover"
+          src={data.productImagePath[0]}
+          alt={data.productName}
+        />
       </div>
       <div className="flex flex-col h-20 justify-between flex-1">
         <div className="flex flex-col gap-1 w-full truncate">
-          <Txt typography="h6">{name}</Txt>
+          <Txt typography="h6">{data.productName}</Txt>
           <Txt
             typography="subtitle"
             colors="secondaryLight"
             className="font-light"
           >
-            {location}
+            {data.location}
           </Txt>
         </div>
         <div className="flex w-full justify-between">
           <Txt typography="h6" colors="secondary">
-            {`${rentalPrice} / 일`}
+            {`${data.rentalPrice} / 일`}
           </Txt>
           <div className="flex items-center gap-1">
             <Icon type="message" size="small" />
-            <Txt typography="p">{review}</Txt>
+            <Txt typography="p">{data.review}</Txt>
           </div>
         </div>
       </div>

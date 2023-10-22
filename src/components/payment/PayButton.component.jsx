@@ -1,4 +1,4 @@
-import { useAtom, useSetAtom } from "jotai";
+import { useAtom } from "jotai";
 import { canPayByMoney } from "../../stores/payment.atom";
 import classnames from "classnames";
 import { Button } from "../common/Button.component";
@@ -8,17 +8,32 @@ import { Modal } from "../common/Modal.component";
 import { Txt } from "../common/Txt.component";
 import { useNavigate } from "react-router-dom";
 import { rentDateAtom } from "../../stores/rent.atom";
+import { useCreateRental } from "../../hooks/useRentalQuery";
 
-export const PaymentPayButton = () => {
+/**
+ * @param {{
+ *  productId: string
+ * }} param0
+ */
+export const PaymentPayButton = ({ productId }) => {
   const [canPay] = useAtom(canPayByMoney);
-  const setRentData = useSetAtom(rentDateAtom);
+  const [rentData, setRentData] = useAtom(rentDateAtom);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const navigate = useNavigate();
+  const { mutationRental } = useCreateRental(productId, {
+    startAt: rentData.from,
+    endAt: rentData.to,
+  });
 
   const onModalClose = () => {
     setRentData({ from: new Date(), to: null });
     setIsOpenModal(false);
     navigate("/");
+  };
+
+  const onCreateRental = () => {
+    mutationRental();
+    setIsOpenModal(true);
   };
 
   return (
@@ -30,7 +45,7 @@ export const PaymentPayButton = () => {
           : "w-[calc(480px-3rem)] pb-4"
       )}
     >
-      <Button isActive={canPay} onClick={() => setIsOpenModal(true)}>
+      <Button isActive={canPay} onClick={onCreateRental}>
         결제하기
       </Button>
       <Modal.Alert

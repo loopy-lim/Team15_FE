@@ -8,16 +8,8 @@ import classNames from "classnames";
  *    label: string
  * }}
  */
-export const InputText = ({ className, label, value, onChange }) => {
-  return (
-    <Input
-      type="text"
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
+export const InputText = ({ className, label }) => {
+  return <Input type="text" className={className} label={label} />;
 };
 
 /**
@@ -26,16 +18,8 @@ export const InputText = ({ className, label, value, onChange }) => {
  *   label: string
  * }}
  */
-export const InputPassword = ({ className, label, value, onChange }) => {
-  return (
-    <Input
-      type="password"
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
+export const InputPassword = ({ className, label }) => {
+  return <Input type="password" className={className} label={label} />;
 };
 
 /**
@@ -45,7 +29,7 @@ export const InputPassword = ({ className, label, value, onChange }) => {
  *  label?: string
  * }}
  */
-export const Input = ({ type, className, label = "", value, onChange }) => {
+export const Input = ({ type, className, label = "" }) => {
   const id = useId();
 
   return (
