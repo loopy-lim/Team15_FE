@@ -1,12 +1,12 @@
-import { AppBar } from "../components/common/AppBar.component";
-import { ChargeMoney } from "../components/paymoney/ChargeMoney";
-import { BottomFullLink } from "../components/common/BottomFullLink.component";
-import { MainContainer } from "../components/common/MainContainer.component";
 import { useAtom } from "jotai";
-import { chargeMoney } from "../stores/paymoney.atom";
-import { useState } from "react";
-import { Modal } from "../components/common/Modal.component";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { AppBar } from "../components/common/AppBar.component.jsx";
+import { ChargeMoney } from "../components/paymoney/ChargeMoney.component.jsx";
+import { BottomFullLink } from "../components/common/BottomFullLink.component.jsx";
+import { MainContainer } from "../components/common/MainContainer.component.jsx";
+import { chargeMoney } from "../stores/paymoney.atom.js";
+import { Modal } from "../components/common/Modal.component.jsx";
 
 export const ChargePage = () => {
   const navigate = useNavigate();

@@ -1,14 +1,14 @@
-import { useAtom } from "jotai";
-import { canPayByMoney } from "../../stores/payment.atom";
 import classnames from "classnames";
-import { Button } from "../common/Button.component";
 import { isMobile } from "react-device-detect";
 import { useState } from "react";
-import { Modal } from "../common/Modal.component";
-import { Txt } from "../common/Txt.component";
+import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
-import { rentDateAtom } from "../../stores/rent.atom";
-import { useCreateRental } from "../../hooks/useRentalQuery";
+import { canPayByMoney } from "../../stores/payment.atom.js";
+import { Button } from "../common/Button.component.jsx";
+import { Modal } from "../common/Modal.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import { rentDateAtom } from "../../stores/rent.atom.js";
+import { useCreateRental } from "../../hooks/useRentalQuery.jsx";
 
 /**
  * @param {{

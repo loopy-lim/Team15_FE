@@ -1,8 +1,7 @@
-import ReactModal from "react-modal";
-import { Button } from "./Button.component";
 import classnames from "classnames";
-import { Icon } from "./Icon.component";
 import { isMobile } from "react-device-detect";
+import { Button } from "./Button.component.jsx";
+import { Icon } from "./Icon.component.jsx";
 
 /**
  * @param {{

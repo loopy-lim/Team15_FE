@@ -1,11 +1,11 @@
-import { BottomFullLink } from "../../components/common/BottomFullLink.component";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component.jsx";
 import {
   InputPassword,
   InputText,
-} from "../../components/sign/Input.component";
-import { SlidePannels } from "../../components/sign/SlidePannel.component";
-import { SignInformation } from "../../components/sign/Information.component";
-import { MainContainer } from "../../components/common/MainContainer.component";
+} from "../../components/sign/Input.component.jsx";
+import { SlidePannels } from "../../components/sign/SlidePannel.component.jsx";
+import { SignInformation } from "../../components/sign/Information.component.jsx";
+import { MainContainer } from "../../components/common/MainContainer.component.jsx";
 
 export const AccountPage = () => {
   return (

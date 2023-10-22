@@ -1,12 +1,16 @@
+import classnames from "classnames";
 import { BiSearch, BiMessageRoundedDetail } from "react-icons/bi";
 import { BsChevronLeft } from "react-icons/bs";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { RiHome5Line } from "react-icons/ri";
-import { AiOutlineClose } from "react-icons/ai";
 import { VscAccount } from "react-icons/vsc";
 import { CiViewList } from "react-icons/ci";
-import { AiOutlineCamera, AiOutlineStar, AiFillStar } from "react-icons/ai";
-import classnames from "classnames";
+import {
+  AiOutlineCamera,
+  AiOutlineStar,
+  AiFillStar,
+  AiOutlineClose,
+} from "react-icons/ai";
 
 const IconSize = {
   small: "h-4 w-4",

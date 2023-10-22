@@ -1,8 +1,8 @@
-import { RentalDto } from "../../../apis/dtos/rental.dto";
-import { RENTAL_TYPE, getRentalType } from "../../../functions/rental";
-import { ItemRental } from "./Rental.component";
-import { ItemRentalCompelete } from "./RentalComplete.component";
-import { ItemRentalSchedule } from "./RentalSchedule.component";
+import { RentalDto } from "../../../apis/dtos/rental.dto.js";
+import { RENTAL_TYPE, getRentalType } from "../../../functions/rental.js";
+import { ItemRental } from "./Rental.component.jsx";
+import { ItemRentalCompelete } from "./RentalComplete.component.jsx";
+import { ItemRentalSchedule } from "./RentalSchedule.component.jsx";
 
 /**
  * @param {{

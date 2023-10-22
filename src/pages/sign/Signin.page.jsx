@@ -1,9 +1,9 @@
-import { BottomFullLink } from "../../components/common/BottomFullLink.component";
+import { BottomFullLink } from "../../components/common/BottomFullLink.component.jsx";
 import {
   InputText,
   InputPassword,
-} from "../../components/sign/Input.component";
-import { MainContainer } from "../../components/common/MainContainer.component";
+} from "../../components/sign/Input.component.jsx";
+import { MainContainer } from "../../components/common/MainContainer.component.jsx";
 
 export const SigninPage = () => {
   return (

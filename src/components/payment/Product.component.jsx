@@ -1,8 +1,8 @@
-import { Txt } from "../common/Txt.component";
 import { useAtom } from "jotai";
-import { rentDateAtom } from "../../stores/rent.atom";
-import { Br } from "../common/Br.component";
-import { useGetProductById } from "../../hooks/useProductQuery";
+import { Txt } from "../common/Txt.component.jsx";
+import { Br } from "../common/Br.component.jsx";
+import { useGetProductById } from "../../hooks/useProductQuery.jsx";
+import { rentDateAtom } from "../../stores/rent.atom.js";
 
 export const PaymoneyProduct = ({ id }) => {
   const { product } = useGetProductById(id);

@@ -1,8 +1,8 @@
-import { SigninPage } from "../src/pages/sign/Signin.page";
-import { SignupPage } from "../src/pages/sign/Signup.page";
-import { AccountPage } from "../src/pages/sign/Account.page";
-import { SchoolPage } from "../src/pages/sign/School.page";
-import { SchoolCardPage } from "../src/pages/sign/SchoolCard.page";
+import { SigninPage } from "../src/pages/sign/Signin.page.jsx";
+import { SignupPage } from "../src/pages/sign/Signup.page.jsx";
+import { AccountPage } from "../src/pages/sign/Account.page.jsx";
+import { SchoolPage } from "../src/pages/sign/School.page.jsx";
+import { SchoolCardPage } from "../src/pages/sign/SchoolCard.page.jsx";
 
 const signRouter = [
   {

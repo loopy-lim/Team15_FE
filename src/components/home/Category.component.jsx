@@ -1,5 +1,5 @@
-import { Link } from "../common/Link.component";
-import { Txt } from "../common/Txt.component";
+import { Link } from "../common/Link.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
 
 const categorys = [
   { id: 1, title: "IT", imgSrc: "/images/categorys/it.png" },

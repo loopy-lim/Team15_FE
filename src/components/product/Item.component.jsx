@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Icon } from "../common/Icon.component";
-import { Txt } from "../common/Txt.component";
-import { ProductDto } from "../../apis/dtos/product.dto";
+import { Icon } from "../common/Icon.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import { ProductDto } from "../../apis/dtos/product.dto.js";
 
 /**
  * @param {object} props

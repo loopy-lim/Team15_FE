@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createRental } from "../apis/paymoney.apis";
-import { getAllRental } from "../apis/rental.apis";
-import { RentalDto } from "../apis/dtos/rental.dto";
+import { createRental } from "../apis/paymoney.apis.js";
+import { getAllRental } from "../apis/rental.apis.js";
+import { RentalDto } from "../apis/dtos/rental.dto.js";
 
 /**
  * @param {import("@tanstack/react-query").UseQueryOptions} config
