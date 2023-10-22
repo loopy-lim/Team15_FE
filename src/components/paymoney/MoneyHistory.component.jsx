@@ -1,4 +1,4 @@
-import { Txt } from "../common/Txt.component";
+import { Txt } from "../common/Txt.component.jsx";
 
 export const MoneyHistory = ({}) => {
   const { piece, coinType, createAt } = {

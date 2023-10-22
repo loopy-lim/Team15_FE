@@ -1,9 +1,9 @@
-import { userMocks } from "./user.mocks";
-import { productMocks } from "./product.mocks";
-import { paymentMocks } from "./payment.mocks";
-import { categoryMocks } from "./category.mocks";
-import { rentalMocks } from "./rental.mocks";
-import { reviewMocks } from "./review.mocks";
+import { userMocks } from "./user.mocks.js";
+import { productMocks } from "./product.mocks.js";
+import { paymentMocks } from "./payment.mocks.js";
+import { categoryMocks } from "./category.mocks.js";
+import { rentalMocks } from "./rental.mocks.js";
+import { reviewMocks } from "./review.mocks.js";
 
 export const handler = [
   ...userMocks,

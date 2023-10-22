@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { productData } from "./product.mocks";
+import { productData } from "./product.mocks.js";
 
 export const categoryMocks = [
   rest.get("/category", (req, res, ctx) => {
@@ -48,11 +48,18 @@ export const categoryMocks = [
         categoryName: "악기",
       },
     ];
-    productData.filter(
-      (product) =>
-        product.category ===
-        category.filter((category) => category.id === req.params.id)[0]
-          .categoryName
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: productData.filter(
+          (product) =>
+            product.category ===
+            category.filter((category) => `${category.id}` === req.params.id)[0]
+              .categoryName
+        ),
+        error: null,
+      })
     );
   }),
 ];

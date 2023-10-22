@@ -1,6 +1,9 @@
 import classnames from "classnames";
-import { BASE_LEFT_PADDING_MINUS, MOBILE_WIDTH } from "../../constants";
 import { isMobile } from "react-device-detect";
+import {
+  BASE_LEFT_PADDING_MINUS,
+  MOBILE_WIDTH,
+} from "../../constants/index.js";
 
 /**
  * @param {{

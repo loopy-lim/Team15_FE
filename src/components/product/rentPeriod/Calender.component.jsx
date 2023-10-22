@@ -1,11 +1,11 @@
 import { ko } from "date-fns/locale";
 import { DayPicker } from "react-day-picker";
-import { Txt } from "../../common/Txt.component";
+import { differenceInBusinessDays } from "date-fns";
 import { useAtom } from "jotai";
-import { rentDateAtom } from "../../../stores/rent.atom";
+import { Txt } from "../../common/Txt.component.jsx";
+import { rentDateAtom } from "../../../stores/rent.atom.js";
 import "react-day-picker/dist/style.css";
 import "./calender.css";
-import { differenceInBusinessDays } from "date-fns";
 
 export const RentCalendar = () => {
   const [value, onChange] = useAtom(rentDateAtom);
