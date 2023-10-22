@@ -5,14 +5,14 @@ import { onErrorModalAtom } from "../stores/global.atom.js";
 import { Modal } from "../components/common/Modal.component.jsx";
 
 /**
- * @param {{message: string, onBeforeClose: () => void}} props
+ * @param {{message: string, onBeforeClose?: () => void}} props
  */
 const CustomErrorAlert = ({ message, onBeforeClose }) => {
   const [onModal, setOnModal] = useAtom(onErrorModalAtom);
 
   const onClose = () => {
     setOnModal(false);
-    onBeforeClose();
+    onBeforeClose?.();
   };
 
   return (
