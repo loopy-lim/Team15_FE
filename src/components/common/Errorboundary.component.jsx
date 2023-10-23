@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { useErrorCatch } from "../../hooks/useErrorCatch";
 
 /**
  * @param {React.Component} props.children
@@ -11,12 +12,13 @@ export class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    return { hasError: true, error };
   }
 
   render() {
+    const ErrorComponent = useErrorCatch(this.state.error);
     if (this.state.hasError) {
-      return <h1>Error</h1>;
+      return ErrorComponent;
     }
 
     return this.props.children;

@@ -22,6 +22,9 @@ const CustomErrorAlert = ({ message, onBeforeClose }) => {
   );
 };
 
+/**
+ * @param {import('axios').AxiosError} error
+ */
 export const useErrorCatch = (error) => {
   const navigation = useNavigation();
   const setOnModal = useSetAtom(onErrorModalAtom);
