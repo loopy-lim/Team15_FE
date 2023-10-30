@@ -9,7 +9,9 @@ import classNames from "classnames";
  * }}
  */
 export const InputText = ({ className, label }) => {
-  return <Input type="text" className={className} label={label} />;
+  return (
+    <Input type="text" className={className} label={label} maxLength={10} />
+  );
 };
 
 /**
@@ -19,7 +21,9 @@ export const InputText = ({ className, label }) => {
  * }}
  */
 export const InputPassword = ({ className, label }) => {
-  return <Input type="password" className={className} label={label} />;
+  return (
+    <Input type="password" className={className} label={label} maxLength={10} />
+  );
 };
 
 /**
@@ -27,10 +31,23 @@ export const InputPassword = ({ className, label }) => {
  *  type: "password" | "text"
  *  className: string
  *  label?: string
+ *  maxLength: number
+ *  onChange: (newValue: string) => void
  * }}
  */
-export const Input = ({ type, className, label = "" }) => {
+export const Input = ({ type, className, maxLength, onChange, label = "" }) => {
   const id = useId();
+
+  const handleInputChange = (event) => {
+    let newValue = event.target.value;
+
+    if (newValue.length > maxLength) {
+      // 길이가 최대값을 넘어가면 입력을 제한
+      newValue = newValue.slice(0, maxLength);
+    }
+
+    onChange(newValue);
+  };
 
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -42,10 +59,10 @@ export const Input = ({ type, className, label = "" }) => {
       <input
         id={id}
         type={type}
-        value={value}
-        onChange={onChange}
+        onChange={handleInputChange}
+        maxLength={maxLength}
         className={classNames(
-          "border-b-2 py-1 my-3border-[#62AB05]",
+          "border-b-2 py-1 my-3 border-[#62AB05]",
           className
         )}
       />

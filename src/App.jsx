@@ -2,7 +2,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { isIOS, isMobile } from "react-device-detect";
 import { RouterProvider } from "react-router-dom";
-import { router } from "../router/index.js";
+import { router } from "../router/index.jsx";
 import { MOBILE_WIDTH } from "./constants/index.js";
 
 const queryClient = new QueryClient();
