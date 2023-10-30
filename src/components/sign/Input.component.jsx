@@ -1,5 +1,6 @@
 import { useId } from "react";
-import { Txt } from "../common/Txt.component.jsx";
+import { Txt } from "../common/Txt.component";
+import classNames from "classnames";
 
 /**
  * @param {{
@@ -41,7 +42,12 @@ export const Input = ({ type, className, label = "" }) => {
       <input
         id={id}
         type={type}
-        className={`border-b-2 py-1 my-4 border-[#62AB05] ${className}`}
+        value={value}
+        onChange={onChange}
+        className={classNames(
+          "border-b-2 py-1 my-3border-[#62AB05]",
+          className
+        )}
       />
     </div>
   );
