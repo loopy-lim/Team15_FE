@@ -1,5 +1,4 @@
 import axios from "axios";
-import { errorCase } from "../constants/errorCase";
 
 const https = axios.create({
   baseURL: import.meta.VITE_API_URL,

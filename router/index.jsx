@@ -21,12 +21,12 @@ const router = createBrowserRouter([
   ...productRouter,
   ...signRouter,
   {
-    path: "/paymoney",
-    element: <PayMoneyPage />,
-  },
-  {
     path: "/mypage",
     element: <MyPage />,
+  },
+  {
+    path: "/paymoney",
+    element: <PayMoneyPage />,
   },
   {
     path: "/paymoney/charge",
