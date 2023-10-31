@@ -10,7 +10,7 @@ import {
 import { Link } from "../common/Link.component.jsx";
 
 const homeMenu = [
-  { iconType: "account", title: "마이페이지", href: "#" },
+  { iconType: "account", title: "마이페이지", href: "/mypage" },
   { iconType: "viewlist", title: "대여내역", href: "/rental" },
   { iconType: "home", title: "홈", href: "/" },
 ];
