@@ -25,16 +25,16 @@ export const AccountPage = () => {
   const handleEmailChange = (event) => {
     const newEmail = event.target.value;
     setEmail(newEmail);
-    updateCanNext(newEmail, password);
+    isValidEmailAndPassword(newEmail, password);
   };
 
   const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
     setPassword(newPassword);
-    updateCanNext(email, newPassword);
+    isValidEmailAndPassword(email, newPassword);
   };
 
-  const updateCanNext = (newEmail, newPassword) => {
+  const isValidEmailAndPassword = (newEmail, newPassword) => {
     const isEmailValid = emailPattern.test(newEmail);
     const isPasswordValid = passwordPattern.test(newPassword);
     setCanNext(isEmailValid && isPasswordValid);

@@ -1,18 +1,20 @@
-import { Txt } from "../common/Txt.component";
+import { Link } from "../common/Link.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
 
 const categorys = [
-  { title: "IT", imgSrc: "/images/categorys/it.png" },
-  { title: "책", imgSrc: "/images/categorys/book.png" },
-  { title: "양복", imgSrc: "/images/categorys/suit.png" },
-  { title: "악기", imgSrc: "/images/categorys/instrument.png" },
+  { id: 1, title: "IT", imgSrc: "/images/categorys/it.png" },
+  { id: 2, title: "도서", imgSrc: "/images/categorys/book.png" },
+  { id: 3, title: "의류", imgSrc: "/images/categorys/suit.png" },
+  { id: 4, title: "악기", imgSrc: "/images/categorys/instrument.png" },
 ];
 
 export const HomeCategory = () => {
   return (
     <div className="flex gap-4 justify-between">
       {categorys.map((category) => (
-        <button
+        <Link
           key={category.title}
+          to={`/product/category/${category.id}`}
           className="flex flex-1 flex-col items-center py-2 px-4 bg-[#F1F1F1] rounded-2xl"
         >
           <img
@@ -21,7 +23,7 @@ export const HomeCategory = () => {
             className="w-full h-full p-2"
           />
           <Txt className="text-sm">{category.title}</Txt>
-        </button>
+        </Link>
       ))}
     </div>
   );

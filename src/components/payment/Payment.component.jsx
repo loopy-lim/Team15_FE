@@ -1,12 +1,12 @@
-import { useQueries } from "@tanstack/react-query";
-import { getProductById } from "../../apis/product";
-import { useAtom } from "jotai";
-import { rentDateAtom } from "../../stores/rent.atom";
-import { Txt } from "../common/Txt.component";
-import { getPaymoney } from "../../apis/paymoney";
-import { canPayByMoney } from "../../stores/payment.atom";
 import { useEffect } from "react";
+import { useQueries } from "@tanstack/react-query";
 import { differenceInBusinessDays } from "date-fns";
+import { useAtom } from "jotai";
+import { getProductById } from "../../apis/product.apis.js";
+import { rentDateAtom } from "../../stores/rent.atom.js";
+import { getPaymoney } from "../../apis/paymoney.apis.js";
+import { canPayByMoney } from "../../stores/payment.atom.js";
+import { Txt } from "../common/Txt.component.jsx";
 
 /**
  * @param {import('react-day-picker').DateRange} rentData
@@ -24,40 +24,24 @@ const calculatePrice = (rentData, rentalPrice) => {
 export const Payment = ({ id }) => {
   const [productData, moneyData] = useQueries({
     queries: [
-      { queryKey: ["product", id], queryFn: () => getProductById(id) },
-      { queryKey: ["money"], queryFn: () => getPaymoney() },
+      {
+        queryKey: ["product", id],
+        queryFn: () => getProductById(id),
+        suspense: true,
+      },
+      { queryKey: ["money"], queryFn: () => getPaymoney(), suspense: true },
     ],
   });
 
-  const { data, isError, isLoading } = productData;
-  const {
-    data: money,
-    isError: moneyIsError,
-    isLoading: moneyIsLoading,
-  } = moneyData;
+  const { data } = productData;
+  const { data: money } = moneyData;
 
   const [rentDate] = useAtom(rentDateAtom);
   const [canPay, setCanPay] = useAtom(canPayByMoney);
 
   useEffect(() => {
-    if (
-      !moneyIsLoading &&
-      !moneyIsError &&
-      money.piece >= calculatePrice(rentDate, data.rentalPrice)
-    ) {
-      setCanPay(true);
-    } else {
-      setCanPay(false);
-    }
-  }, [data, money]);
-
-  if (!data && !money && isLoading && moneyIsLoading) {
-    return <div>loading</div>;
-  }
-
-  if (isError && moneyIsError) {
-    return <div>error</div>;
-  }
+    setCanPay(money.totalPiece >= calculatePrice(rentDate, data.rentalPrice));
+  }, [data, money, rentDate]);
 
   return (
     <div className="flex flex-col justify-between">
@@ -81,7 +65,7 @@ export const Payment = ({ id }) => {
           <Txt typography="h6" colors="secondaryLight">
             페이머니
           </Txt>
-          <Txt>{`보유 ${money.piece} 원`}</Txt>
+          <Txt>{`보유 ${money.totalPiece} 원`}</Txt>
         </div>
         <div className="flex justify-between">
           <Txt typography="h6" colors="secondaryLight">

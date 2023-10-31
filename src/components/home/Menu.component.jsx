@@ -1,10 +1,13 @@
-import { useState } from "react";
-import { Icon } from "../common/Icon.component";
-import { Txt } from "../common/Txt.component";
 import classnames from "classnames";
-import { BASE_LEFT_PADDING_MINUS, MOBILE_WIDTH } from "../../constants";
 import { isMobile } from "react-device-detect";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Icon } from "../common/Icon.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import {
+  BASE_LEFT_PADDING_MINUS,
+  MOBILE_WIDTH,
+} from "../../constants/index.js";
+import { Link } from "../common/Link.component.jsx";
 
 const homeMenu = [
   { iconType: "account", title: "마이페이지", href: "#" },

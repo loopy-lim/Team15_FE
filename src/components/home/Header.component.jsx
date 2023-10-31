@@ -1,9 +1,9 @@
-import { BASE_PADDING, MOBILE_WIDTH } from "../../constants";
-import { Icon } from "../common/Icon.component";
-import { Txt } from "../common/Txt.component";
-import { Menu } from "./Menu.component";
 import classnames from "classnames";
 import { isMobile } from "react-device-detect";
+import { BASE_PADDING, MOBILE_WIDTH } from "../../constants/index.js";
+import { Icon } from "../common/Icon.component.jsx";
+import { Txt } from "../common/Txt.component.jsx";
+import { Menu } from "./Menu.component.jsx";
 
 export const HomeHeader = () => {
   return (

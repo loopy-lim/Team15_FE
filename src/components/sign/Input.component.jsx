@@ -1,5 +1,6 @@
 import { useId } from "react";
 import { Txt } from "../common/Txt.component";
+import classNames from "classnames";
 
 /**
  * @param {{
@@ -7,16 +8,8 @@ import { Txt } from "../common/Txt.component";
  *    label: string
  * }}
  */
-export const InputText = ({ className, label, value, onChange }) => {
-  return (
-    <Input
-      type="text"
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
+export const InputText = ({ className, label }) => {
+  return <Input type="text" className={className} label={label} />;
 };
 
 /**
@@ -25,16 +18,8 @@ export const InputText = ({ className, label, value, onChange }) => {
  *   label: string
  * }}
  */
-export const InputPassword = ({ className, label, value, onChange }) => {
-  return (
-    <Input
-      type="password"
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
+export const InputPassword = ({ className, label }) => {
+  return <Input type="password" className={className} label={label} />;
 };
 
 /**
@@ -44,7 +29,7 @@ export const InputPassword = ({ className, label, value, onChange }) => {
  *  label?: string
  * }}
  */
-export const Input = ({ type, className, label = "", value, onChange }) => {
+export const Input = ({ type, className, label = "" }) => {
   const id = useId();
 
   return (
@@ -59,7 +44,10 @@ export const Input = ({ type, className, label = "", value, onChange }) => {
         type={type}
         value={value}
         onChange={onChange}
-        className={`border-b-2 py-1 my-3 border-[#62AB05] ${className}`}
+        className={classNames(
+          "border-b-2 py-1 my-3border-[#62AB05]",
+          className
+        )}
       />
     </div>
   );

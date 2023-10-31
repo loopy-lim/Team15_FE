@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { Icon } from "./Icon.component";
-import { Txt } from "./Txt.component";
-import { Br } from "./Br.component";
+import { Icon } from "./Icon.component.jsx";
+import { Txt } from "./Txt.component.jsx";
+import { Br } from "./Br.component.jsx";
 
 /**
  * @param {{
