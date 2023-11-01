@@ -9,16 +9,13 @@ import { ChargeMoney } from "../components/paymoney/ChargeMoney.component";
 import { BottomFullLink } from "../components/common/BottomFullLink.component";
 
 export const ChargePage = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [money] = useAtom(chargeMoney);
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
   const onModalClose = () => {
     setIsModalAlertOpen(false);
+    navigate("/");
   };
-  // const handleConfirmClick = () => {
-  //   setIsModalAlertOpen(false);
-  //   navigate("/");
-  // };
 
   return (
     <>
@@ -46,7 +43,6 @@ export const ChargePage = () => {
             <div>입금 후 1일 이내에 </div>
             <div>페이머니 잔액에 반영될 예정입니다.</div>
             <div>감사합니다 :)</div>
-            {/* <button onClick={handleConfirmClick}>확인</button> */}
           </div>
         </Modal.Alert>
       </MainContainer>
