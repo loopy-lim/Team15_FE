@@ -42,7 +42,7 @@ export const productMocks = [
       })
     );
   }),
-  rest.get("/product/:id/rent", (req, res, ctx) => {
+  rest.post("/product/:id/rent", (req, res, ctx) => {
     const { id } = req.params;
     const product = productData.find((product) => product.id === Number(id));
 
@@ -51,16 +51,6 @@ export const productMocks = [
       ctx.json({
         success: true,
         response: product,
-        error: null,
-      })
-    );
-  }),
-  rest.post("/product", (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        success: true,
-        response: null,
         error: null,
       })
     );

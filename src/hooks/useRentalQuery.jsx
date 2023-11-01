@@ -1,5 +1,8 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { createRental } from "../apis/paymoney.apis.js";
+import {
+  createRental,
+  getProductCalculateRental,
+} from "../apis/paymoney.apis.js";
 import { getAllRental } from "../apis/rental.apis.js";
 import { RentalDto } from "../apis/dtos/rental.dto.js";
 
@@ -13,6 +16,17 @@ export const useGetRentalAll = (config) => {
     suspense: true,
   });
   return { rentals };
+};
+
+export const useGetProductRentalCalculate = (productId, { startAt, endAt }) => {
+  const { data: rental } = useQuery(
+    ["rental", productId, { startAt, endAt }],
+    () => getProductCalculateRental(productId, { startAt, endAt }),
+    {
+      suspense: true,
+    }
+  );
+  return { rental };
 };
 
 /**
