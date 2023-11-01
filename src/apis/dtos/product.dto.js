@@ -25,3 +25,21 @@ export class ProductDto {
     this.companyImagePath = companyImagePath;
   }
 }
+
+export class ProductCalculateRentalDto {
+  constructor({
+    id,
+    productName,
+    location,
+    productImagePath,
+    companyName,
+    totalPrice,
+  }) {
+    this.id = id;
+    this.productName = productName;
+    this.productImagePath = productImagePath;
+    this.location = location;
+    this.companyName = companyName;
+    this.totalPrice = totalPrice;
+  }
+}
