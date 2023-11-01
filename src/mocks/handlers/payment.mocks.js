@@ -1,4 +1,5 @@
 import { rest } from "msw";
+import { productData } from "./product.mocks";
 
 export const paymentMocks = [
   rest.get("/paymoney", (req, res, ctx) => {
@@ -34,17 +35,31 @@ export const paymentMocks = [
       })
     );
   }),
-  rest.post("/payment/:id/create", (req, res, ctx) => {
+  rest.post("payment/:productId/rent", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
         success: true,
-        response: null,
+        response: productData.filter(
+          (product) => product.id === req.params.productId
+        ),
         error: null,
       })
     );
   }),
-  rest.post("payment/charge", (req, res, ctx) => {
+  rest.post("/payment/use-coin/:productId/", (req, res, ctx) => {
+    return res(
+      ctx.status(200),
+      ctx.json({
+        success: true,
+        response: productData.filter(
+          (product) => product.id === req.params.productId
+        ),
+        error: null,
+      })
+    );
+  }),
+  rest.post("/payment/charge", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({

@@ -8,6 +8,7 @@ import { RentalListPage } from "../src/pages/RentalList.page.jsx";
 import { ReviewPage } from "../src/pages/Review.page.jsx";
 import productRouter from "./product.router.jsx";
 import signRouter from "./sign.router.jsx";
+import { SearchPage } from "../src/pages/Search.page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/mypage",
     element: <MyPage />,
+  },
+  {
+    path: "/serach",
+    element: <SearchPage />,
   },
   {
     path: "/paymoney",
