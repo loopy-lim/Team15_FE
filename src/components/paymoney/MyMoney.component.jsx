@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Txt } from "../common/Txt.component.jsx";
 import { Modal } from "../common/Modal.component.jsx";
 import { Link } from "../common/Link.component.jsx";
+import { useGetPaymoney } from "../../hooks/usePayMoneyQuery.jsx";
 
 export const MyMoney = () => {
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
+  const { paymoney } = useGetPaymoney();
   const { piece } = {
     piece: "20000",
   };
@@ -17,7 +19,7 @@ export const MyMoney = () => {
     <>
       <div className="bg-[#FCFCFE] py-4 border broder-[#F1F1F1] rounded-2xl flex justify-between items-center">
         <Txt typography="h2" className="px-6">
-          {piece}원
+          {paymoney}원
         </Txt>
         <div className="flex gap-4 items-center px-6">
           <button
