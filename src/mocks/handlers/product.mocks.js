@@ -42,15 +42,30 @@ export const productMocks = [
       })
     );
   }),
-  rest.post("/product/:id/rent", (req, res, ctx) => {
-    const { id } = req.params;
-    const product = productData.find((product) => product.id === Number(id));
+  rest.post("/product/:productId/rent", async (req, res, ctx) => {
+    const { productId } = req.params;
+    const { startAt, endAt } = await req.json();
+
+    console.log(startAt, endAt);
+
+    const product = productData.find(
+      (product) => product.id === Number(productId)
+    );
 
     return res(
       ctx.status(200),
       ctx.json({
         success: true,
-        response: product,
+        response: {
+          id: productId,
+          productName: product.productName,
+          location: product.location,
+          productImagePath: product.productImagePath,
+          companyName: product.companyName,
+          totalPrice:
+            product.rentalPrice *
+            Math.abs(new Date(startAt).getDate() - new Date(endAt).getDate()),
+        },
         error: null,
       })
     );

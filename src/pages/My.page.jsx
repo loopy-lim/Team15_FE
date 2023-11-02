@@ -5,13 +5,19 @@ import { MyPageMenu } from "../components/mypage/Menu.component";
 import classnaems from "classnames";
 import { MOBILE_WIDTH } from "../constants";
 import { isMobile } from "react-device-detect";
+import { Suspense } from "react";
+import { ErrorBoundary } from "../components/common/Errorboundary.component";
 
 export const MyPage = () => {
   return (
     <>
       <AppBar to="/" />
       <MainContainer>
-        <MyPageInfo />
+        <ErrorBoundary>
+          <Suspense fallback={<div>loading...</div>}>
+            <MyPageInfo />
+          </Suspense>
+        </ErrorBoundary>
         <div
           className={classnaems(
             "absolute h-full bg-gray-100 py-4 left-0",

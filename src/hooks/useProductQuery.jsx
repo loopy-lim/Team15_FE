@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import {
   getAllProduct,
   getProductByCategory,
@@ -12,11 +12,11 @@ import { ProductDto } from "../apis/dtos/product.dto.js";
  * @return {{product: ProductDto}}
  */
 export const useGetProductById = (id, config) => {
-  const { data: product } = useQuery(
-    ["product", id],
-    () => getProductById(id),
-    { ...config, suspense: true }
-  );
+  const { data: product } = useSuspenseQuery({
+    queryKey: ["product", id],
+    queryFn: () => getProductById(id),
+    ...config,
+  });
   return { product };
 };
 
@@ -25,9 +25,10 @@ export const useGetProductById = (id, config) => {
  * @return {{products: ProductDto[]}}
  */
 export const useGetProductAll = (config) => {
-  const { data: products } = useQuery(["allProduct"], () => getAllProduct(), {
+  const { data: products } = useSuspenseQuery({
+    queryKey: ["allProduct"],
+    queryFn: () => getAllProduct(),
     ...config,
-    suspense: true,
   });
   return { products };
 };
@@ -38,10 +39,10 @@ export const useGetProductAll = (config) => {
  * @return {{products: ProductDto[]}}
  */
 export const useGetProductByCategory = (category, config) => {
-  const { data: products } = useQuery(
-    ["product", category],
-    () => getProductByCategory(category),
-    { ...config, suspense: true }
-  );
+  const { data: products } = useSuspenseQuery({
+    queryKey: ["product", category],
+    queryFn: () => getProductByCategory(category),
+    ...config,
+  });
   return { products };
 };

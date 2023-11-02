@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useSuspenseQuery } from "@tanstack/react-query";
 import { getMyInfo } from "../apis/user.apis";
 import { MyInfoDto } from "../apis/dtos/user.dto";
 /**
@@ -6,9 +6,10 @@ import { MyInfoDto } from "../apis/dtos/user.dto";
  * @return {{myInfo: MyInfoDto}}
  */
 export const useMyInfoQuery = (config) => {
-  const { data: myInfo } = useQuery(["myInfo"], () => getMyInfo(), {
+  const { data: myInfo } = useSuspenseQuery({
+    queryKey: ["myInfo"],
+    queryFn: () => getMyInfo(),
     ...config,
-    suspense: true,
   });
 
   return { myInfo };
