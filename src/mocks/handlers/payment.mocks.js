@@ -35,18 +35,6 @@ export const paymentMocks = [
       })
     );
   }),
-  rest.post("payment/:productId/rent", (req, res, ctx) => {
-    return res(
-      ctx.status(200),
-      ctx.json({
-        success: true,
-        response: productData.filter(
-          (product) => product.id === req.params.productId
-        ),
-        error: null,
-      })
-    );
-  }),
   rest.post("/payment/use-coin/:productId/", (req, res, ctx) => {
     return res(
       ctx.status(200),

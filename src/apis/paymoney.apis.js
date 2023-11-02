@@ -23,7 +23,7 @@ export const getProductCalculateRental = async (
   productId,
   { startAt, endAt }
 ) => {
-  const result = await https.get(`/paymoney/${productId}/rent`, {
+  const result = await https.post(`/product/${productId}/rent`, {
     startAt,
     endAt,
   });
