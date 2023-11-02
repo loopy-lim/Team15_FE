@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Txt } from "../common/Txt.component.jsx";
 import { Modal } from "../common/Modal.component.jsx";
 import { Link } from "../common/Link.component.jsx";
-import { useGetPaymoney } from "../../hooks/usePayMoneyQuery.jsx";
+import { useGetPaymoney } from "../../hooks/usePaymonyQuery.jsx";
 
 export const MyMoney = () => {
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
-  const { paymoney } = useGetPaymoney();
+  const { paymoney } = useGetPaymoney("20000");
   const { piece } = {
     piece: "20000",
   };
