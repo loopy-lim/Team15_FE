@@ -6,7 +6,7 @@ import { useGetPaymoney } from "../../hooks/usePaymonyQuery.jsx";
 
 export const MyMoney = () => {
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
-  const { paymoney } = useGetPaymoney("20000");
+  const { paymoney } = useGetPaymoney();
   const { piece } = {
     piece: "20000",
   };
