@@ -7,7 +7,7 @@ export const paymentMocks = [
       ctx.status(200),
       ctx.json({
         success: true,
-        response: { totalPiece: 50000 },
+        response: { totalPrice: 50000 },
         error: null,
       })
     );

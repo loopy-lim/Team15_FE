@@ -1,5 +1,5 @@
 export class MoneyDto {
   constructor({ totalPrice }) {
-    this.totalPiece = totalPiece;
+    this.totalPrice = totalPrice;
   }
 }
