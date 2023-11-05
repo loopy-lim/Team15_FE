@@ -1,21 +1,18 @@
 import { useAtom } from "jotai";
-import { useNavigate } from "react-router-dom";
+import { chargeMoney } from "../stores/paymoney.atom";
 import { useState } from "react";
-import { AppBar } from "../components/common/AppBar.component.jsx";
-import { ChargeMoney } from "../components/paymoney/ChargeMoney.component.jsx";
-import { BottomFullLink } from "../components/common/BottomFullLink.component.jsx";
-import { MainContainer } from "../components/common/MainContainer.component.jsx";
-import { chargeMoney } from "../stores/paymoney.atom.js";
-import { Modal } from "../components/common/Modal.component.jsx";
+import { Modal } from "../components/common/Modal.component";
+import { useNavigate } from "react-router-dom";
+import { AppBar } from "../components/common/AppBar.component";
+import { MainContainer } from "../components/common/MainContainer.component";
+import { ChargeMoney } from "../components/paymoney/ChargeMoney.component";
+import { BottomFullLink } from "../components/common/BottomFullLink.component";
 
 export const ChargePage = () => {
   const navigate = useNavigate();
   const [money] = useAtom(chargeMoney);
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
   const onModalClose = () => {
-    setIsModalAlertOpen(false);
-  };
-  const handleConfirmClick = () => {
     setIsModalAlertOpen(false);
     navigate("/");
   };
@@ -34,9 +31,7 @@ export const ChargePage = () => {
           <p>1일(영업일 기준) 내로 입금이 확인되는대로</p>
           <p>페이머니에 충전될 예정입니다. 감사합니다</p>
         </div>
-        <BottomFullLink
-          title="충전하기"
-          isActive={Number(money) > 0}
+        <BottomFullLink title="충전하기" isActive={Number(money) > 0}
           onClick={() => setIsModalAlertOpen((prev) => !prev)}
         />
         <Modal.Alert
@@ -48,7 +43,6 @@ export const ChargePage = () => {
             <div>입금 후 1일 이내에 </div>
             <div>페이머니 잔액에 반영될 예정입니다.</div>
             <div>감사합니다 :)</div>
-            {/* <button onClick={handleConfirmClick}>확인</button> */}
           </div>
         </Modal.Alert>
       </MainContainer>
