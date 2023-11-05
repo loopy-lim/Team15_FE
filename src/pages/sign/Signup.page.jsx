@@ -10,12 +10,13 @@ export const SignupPage = () => {
   const [name, setName] = useState("");
   const [canNext, setCanNext] = useState(false);
 
-  const handleNameChange = (newName) => {
+  const handleNameChange = (event) => {
+    let newName = event.target.value;
     if (newName.length > 10) {
       newName = newName.slice(0, 10);
     }
 
-    const isValidName = /^[a-zA-Z가-힣0-9]{2,10}$/.test(newName);
+    const isValidName = /^[a-zA-Z가-힣0-9]{2,11}$/.test(newName);
 
     setName(newName);
     setCanNext(isValidName);

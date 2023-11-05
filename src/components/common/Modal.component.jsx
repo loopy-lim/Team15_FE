@@ -2,6 +2,7 @@ import classnames from "classnames";
 import { isMobile } from "react-device-detect";
 import { Button } from "./Button.component.jsx";
 import { Icon } from "./Icon.component.jsx";
+import ReactModal from "react-modal";
 
 /**
  * @param {{

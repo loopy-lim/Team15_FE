@@ -8,9 +8,22 @@ import classNames from "classnames";
  *    label: string
  * }}
  */
-export const InputText = ({ className, label }) => {
+export const InputText = ({
+  placeholder,
+  className,
+  label,
+  value,
+  onChange,
+}) => {
   return (
-    <Input type="text" className={className} label={label} maxLength={10} />
+    <Input
+      type="text"
+      placeholder={placeholder}
+      className={className}
+      label={label}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
 
@@ -20,9 +33,15 @@ export const InputText = ({ className, label }) => {
  *   label: string
  * }}
  */
-export const InputPassword = ({ className, label }) => {
+export const InputPassword = ({ className, label, value, onChange }) => {
   return (
-    <Input type="password" className={className} label={label} maxLength={10} />
+    <Input
+      type="password"
+      className={className}
+      label={label}
+      value={value}
+      onChange={onChange}
+    />
   );
 };
 
@@ -31,23 +50,18 @@ export const InputPassword = ({ className, label }) => {
  *  type: "password" | "text"
  *  className: string
  *  label?: string
- *  maxLength: number
- *  onChange: (newValue: string) => void
+ *  ...props: any
  * }}
  */
-export const Input = ({ type, className, maxLength, onChange, label = "" }) => {
+export const Input = ({
+  type,
+  className,
+  label = "",
+  value,
+  onChange,
+  ...props
+}) => {
   const id = useId();
-
-  const handleInputChange = (event) => {
-    let newValue = event.target.value;
-
-    if (newValue.length > maxLength) {
-      // 길이가 최대값을 넘어가면 입력을 제한
-      newValue = newValue.slice(0, maxLength);
-    }
-
-    onChange(newValue);
-  };
 
   return (
     <div className="flex flex-col gap-2 w-full">
@@ -57,10 +71,11 @@ export const Input = ({ type, className, maxLength, onChange, label = "" }) => {
         </Txt>
       </label>
       <input
+        {...props}
         id={id}
         type={type}
-        onChange={handleInputChange}
-        maxLength={maxLength}
+        value={value}
+        onChange={onChange}
         className={classNames(
           "border-b-2 py-1 my-3 border-[#62AB05]",
           className

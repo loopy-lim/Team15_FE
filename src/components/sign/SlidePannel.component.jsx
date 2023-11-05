@@ -11,7 +11,7 @@ export const SlidePannels = ({ maxLengh = 3, selectedIndex = 0 }) => {
   return (
     <div className="flex justify-center gap-2">
       {Array.from({ length: maxLengh }, (_, i) => {
-        return <SlidePannel isSelect={i === selectedIndex} />;
+        return <SlidePannel key={i} isSelect={i === selectedIndex} />;
       })}
     </div>
   );
