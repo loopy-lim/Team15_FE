@@ -6,10 +6,7 @@ import { useGetPaymoney } from "../../hooks/usePaymonyQuery.jsx";
 
 export const MyMoney = () => {
   const [isModalAlertOpen, setIsModalAlertOpen] = useState(false);
-  const { paymoney } = useGetPaymoney();
-  const { piece } = {
-    piece: "20000",
-  };
+  const { payment } = useGetPaymoney();
 
   const onModalClose = () => {
     setIsModalAlertOpen(false);
@@ -19,7 +16,7 @@ export const MyMoney = () => {
     <>
       <div className="bg-[#FCFCFE] py-4 border broder-[#F1F1F1] rounded-2xl flex justify-between items-center">
         <Txt typography="h2" className="px-6">
-          {payment}원
+          {JSON.stringify(payment.piece)}원
         </Txt>
         <div className="flex gap-4 items-center px-6">
           <button

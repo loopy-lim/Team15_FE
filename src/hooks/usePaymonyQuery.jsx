@@ -8,7 +8,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 export const useGetPaymoney = (config) => {
   const { data: payment } = useSuspenseQuery({
     queryKey: ["payment"],
-    queryFn: () => getPaymoney(payment),
+    queryFn: () => getPaymoney(),
     ...config,
   });
   return { payment };
