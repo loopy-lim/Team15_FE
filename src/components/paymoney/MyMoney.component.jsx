@@ -19,7 +19,7 @@ export const MyMoney = () => {
     <>
       <div className="bg-[#FCFCFE] py-4 border broder-[#F1F1F1] rounded-2xl flex justify-between items-center">
         <Txt typography="h2" className="px-6">
-          {paymoney}원
+          {payment}원
         </Txt>
         <div className="flex gap-4 items-center px-6">
           <button
