@@ -8,8 +8,23 @@ import classNames from "classnames";
  *    label: string
  * }}
  */
-export const InputText = ({ className, label }) => {
-  return <Input type="text" className={className} label={label} />;
+export const InputText = ({
+  placeholder,
+  className,
+  label,
+  value,
+  onChange,
+}) => {
+  return (
+    <Input
+      type="text"
+      placeholder={placeholder}
+      className={className}
+      label={label}
+      value={value}
+      onChange={onChange}
+    />
+  );
 };
 
 /**
@@ -18,8 +33,16 @@ export const InputText = ({ className, label }) => {
  *   label: string
  * }}
  */
-export const InputPassword = ({ className, label }) => {
-  return <Input type="password" className={className} label={label} />;
+export const InputPassword = ({ className, label, value, onChange }) => {
+  return (
+    <Input
+      type="password"
+      className={className}
+      label={label}
+      value={value}
+      onChange={onChange}
+    />
+  );
 };
 
 /**
@@ -27,9 +50,17 @@ export const InputPassword = ({ className, label }) => {
  *  type: "password" | "text"
  *  className: string
  *  label?: string
+ *  ...props: any
  * }}
  */
-export const Input = ({ type, className, label = "" }) => {
+export const Input = ({
+  type,
+  className,
+  label = "",
+  value,
+  onChange,
+  ...props
+}) => {
   const id = useId();
 
   return (
@@ -40,12 +71,13 @@ export const Input = ({ type, className, label = "" }) => {
         </Txt>
       </label>
       <input
+        {...props}
         id={id}
         type={type}
         value={value}
         onChange={onChange}
         className={classNames(
-          "border-b-2 py-1 my-3border-[#62AB05]",
+          "border-b-2 py-1 my-3 border-[#62AB05]",
           className
         )}
       />

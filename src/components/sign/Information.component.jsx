@@ -17,7 +17,7 @@ export const SignInformation = ({ title }) => {
         className="flex flex-col gap-2 mt-5 mb-20 text-center"
       >
         {title.split("\n").map((line) => {
-          return <div>{line}</div>;
+          return <div key={line}>{line}</div>;
         })}
       </Txt>
     </>

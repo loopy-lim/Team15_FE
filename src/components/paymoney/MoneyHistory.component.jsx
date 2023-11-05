@@ -1,9 +1,9 @@
 import { Txt } from "../common/Txt.component.jsx";
 
-export const MoneyHistory = ({}) => {
-  const { piece, coinType, createAt } = {
+export const MoneyHistory = ({ }) => {
+  const { coinType, createAt } = {
     id: "1",
-    piece: "10000",
+    // piece: "10000",
     coinType: "결제",
     createAt: "2023-09-18 12:00:00",
   };

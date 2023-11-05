@@ -2,12 +2,12 @@ import { rest } from "msw";
 import { productData } from "./product.mocks";
 
 export const paymentMocks = [
-  rest.get("/paymoney", (req, res, ctx) => {
+  rest.get("/payment", (req, res, ctx) => {
     return res(
       ctx.status(200),
       ctx.json({
         success: true,
-        response: { totalPiece: 50000 },
+        response: { piece: 50000 },
         error: null,
       })
     );

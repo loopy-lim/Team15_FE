@@ -4,12 +4,12 @@ import { MoneyDto } from "./dtos/money.dto.js";
 import { ProductCalculateRentalDto } from "./dtos/product.dto.js";
 
 export const getPaymoney = async () => {
-  const paymoney = await https.get("/paymoney");
-  if (isAxiosError(paymoney) && paymoney.response?.status === 404) {
+  const payment = await https.get("/payment");
+  if (isAxiosError(payment) && payment.response?.status === 404) {
     window.location.href = "/error/404";
   }
 
-  return new MoneyDto(paymoney.response);
+  return new MoneyDto(payment.response);
 };
 
 /**

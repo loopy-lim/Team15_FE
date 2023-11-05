@@ -3,13 +3,13 @@ import { getPaymoney } from "../apis/paymoney.apis";
 import { useSuspenseQuery } from "@tanstack/react-query";
 
 /**
- * @returns {{paymoney: MoneyDto}}
+ * @returns {{payment: MoneyDto}}
  */
 export const useGetPaymoney = (config) => {
-  const { data: paymoney } = useSuspenseQuery({
-    queryKey: ["paymoney"],
+  const { data: payment } = useSuspenseQuery({
+    queryKey: ["payment"],
     queryFn: () => getPaymoney(),
     ...config,
   });
-  return { paymoney };
+  return { payment };
 };
