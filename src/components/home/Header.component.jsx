@@ -4,6 +4,7 @@ import { BASE_PADDING, MOBILE_WIDTH } from "../../constants/index.js";
 import { Icon } from "../common/Icon.component.jsx";
 import { Txt } from "../common/Txt.component.jsx";
 import { Menu } from "./Menu.component.jsx";
+import { Link } from "../common/Link.component.jsx";
 
 export const HomeHeader = () => {
   return (
@@ -19,7 +20,9 @@ export const HomeHeader = () => {
           <Menu />
           <Txt typography="h6">전남대</Txt>
         </div>
-        <Icon type="search" />
+        <Link to="/serach">
+          <Icon type="search" />
+        </Link>
       </div>
     </div>
   );
