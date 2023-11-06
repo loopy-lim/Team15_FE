@@ -1,0 +1,10 @@
+.rdp  {
+  --rdp-cell-size: 3rem;
+  --rdp-accent-color: #62AB05;
+  --rdp-background-color: #62AB0530;
+}
+
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+  background-color: var(--rdp-accent-color) !important;
+  color: white;
+}
