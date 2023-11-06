@@ -1,0 +1,7 @@
+{
+  "name": "borrow-me",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}

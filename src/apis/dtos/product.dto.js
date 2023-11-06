@@ -1,6 +1,7 @@
 export class ProductDto {
   constructor({
     id,
+    category,
     productName,
     rentalPrice,
     regularPrice,
@@ -13,16 +14,17 @@ export class ProductDto {
     companyImagePath,
   }) {
     this.id = id;
+    this.category = category;
     this.productName = productName;
-    this.productImagePath = productImagePath;
-    this.location = location;
     this.rentalPrice = rentalPrice;
     this.regularPrice = regularPrice;
     this.description = description;
-    this.review = review;
-    this.content = content;
+    this.productImagePath = productImagePath;
     this.companyName = companyName;
     this.companyImagePath = companyImagePath;
+    this.location = location;
+    this.review = review;
+    this.content = content;
   }
 }
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const https = axios.create({
-  baseURL: import.meta.VITE_API_URL,
+  baseURL: import.meta.env.VITE_API_URL + "/api",
 });
 
 https.interceptors.request.use((config) => {
