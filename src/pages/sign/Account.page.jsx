@@ -2,12 +2,9 @@ import { BottomFullLink } from "../../components/common/BottomFullLink.component
 import { SlidePannels } from "../../components/sign/SlidePannel.component";
 import { SignInformation } from "../../components/sign/Information.component";
 import { MainContainer } from "../../components/common/MainContainer.component";
-import {
-  InputText,
-  InputPassword,
-} from "../../components/sign/Input.component";
 import { Txt } from "../../components/common/Txt.component";
 import { useState } from "react";
+import { Input } from "../../components/sign/Input.component";
 
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -46,8 +43,14 @@ export const AccountPage = () => {
       <div className="flex flex-col items-center">
         <SignInformation title={`이메일과 비밀번호를\n설정하세요`} />
         <div className="flex flex-col gap-4 w-3/4">
-          <InputText label="Email" value={email} onChange={handleEmailChange} />
-          <InputPassword
+          <Input
+            type="text"
+            label="Email"
+            value={email}
+            onChange={handleEmailChange}
+          />
+          <Input
+            type="password"
             label="Password"
             value={password}
             onChange={handlePasswordChange}

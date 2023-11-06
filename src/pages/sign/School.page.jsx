@@ -1,5 +1,5 @@
 import { BottomFullLink } from "../../components/common/BottomFullLink.component.jsx";
-import { InputText } from "../../components/sign/Input.component.jsx";
+import { Input } from "../../components/sign/Input.component.jsx";
 import { SlidePannels } from "../../components/sign/SlidePannel.component.jsx";
 import { MainContainer } from "../../components/common/MainContainer.component.jsx";
 import { SignInformation } from "../../components/sign/Information.component.jsx";
@@ -30,7 +30,8 @@ export const SchoolPage = () => {
       <div className="flex flex-col items-center">
         <SignInformation title={`당신의 학교를\n알고 싶어요`} />
         <div className="w-3/4">
-          <InputText
+          <Input
+            type="text"
             placeholder="학교명"
             value={school}
             onChange={handleSchoolChange}

@@ -13,18 +13,18 @@ export class ProductDto {
     companyName,
     companyImagePath,
   }) {
-    this.id = id;
-    this.category = category;
-    this.productName = productName;
-    this.rentalPrice = rentalPrice;
-    this.regularPrice = regularPrice;
-    this.description = description;
-    this.productImagePath = productImagePath;
-    this.companyName = companyName;
-    this.companyImagePath = companyImagePath;
-    this.location = location;
-    this.review = review;
-    this.content = content;
+    this.id = id ?? 0;
+    this.category = category ?? "";
+    this.productName = productName ?? "";
+    this.rentalPrice = rentalPrice ?? 0;
+    this.regularPrice = regularPrice ?? 0;
+    this.description = description ?? "";
+    this.productImagePath = productImagePath ?? [""];
+    this.companyName = companyName ?? "";
+    this.companyImagePath = companyImagePath ?? "";
+    this.location = location ?? "";
+    this.review = review ?? 0;
+    this.content = content ?? "";
   }
 }
 

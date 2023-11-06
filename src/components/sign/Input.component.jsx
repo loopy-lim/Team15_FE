@@ -3,64 +3,17 @@ import { Txt } from "../common/Txt.component";
 import classNames from "classnames";
 
 /**
- * @param {{
- *    className: string
- *    label: string
- * }}
- */
-export const InputText = ({
-  placeholder,
-  className,
-  label,
-  value,
-  onChange,
-}) => {
-  return (
-    <Input
-      type="text"
-      placeholder={placeholder}
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
-
-/**
- * @param {{
- *   className: string
- *   label: string
- * }}
- */
-export const InputPassword = ({ className, label, value, onChange }) => {
-  return (
-    <Input
-      type="password"
-      className={className}
-      label={label}
-      value={value}
-      onChange={onChange}
-    />
-  );
-};
-
-/**
- * @param {{
+ * @typedef {{
  *  type: "password" | "text"
  *  className: string
  *  label?: string
- *  ...props: any
- * }}
+ * }} InputProps
+ *
+ * @typedef {React.PropsWithChildren<React.InputHTMLAttributes<HtmlInputElement>> & InputProps} InputPropsWithChildren
+ *
+ * @param {InputPropsWithChildren} props
  */
-export const Input = ({
-  type,
-  className,
-  label = "",
-  value,
-  onChange,
-  ...props
-}) => {
+export const Input = ({ type = "text", label = "", className, ...props }) => {
   const id = useId();
 
   return (
@@ -74,10 +27,8 @@ export const Input = ({
         {...props}
         id={id}
         type={type}
-        value={value}
-        onChange={onChange}
         className={classNames(
-          "border-b-2 py-1 my-3 border-[#62AB05]",
+          "border-b-2 py-1 my-3 border-[#62AB05] outline-none",
           className
         )}
       />
