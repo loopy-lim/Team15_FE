@@ -13,8 +13,8 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/dist ./borrow-me/frontend
 RUN npm install --global pnpm
 RUN corepack enable
-RUN pnpm install --frozen-lockfile
 RUN cd /usr/src/app/borrow-me
+RUN pnpm install --frozen-lockfile
 RUN pnpm run build
 RUN pnpm run seed:run
 EXPOSE 3000
