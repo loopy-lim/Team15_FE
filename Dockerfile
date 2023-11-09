@@ -16,5 +16,6 @@ RUN corepack enable
 RUN pnpm install --frozen-lockfile
 RUN cd /usr/src/app/borrow-me
 RUN pnpm run build
+RUN pnpm run seed:run
 EXPOSE 3000
 CMD ["pnpm", "run", "start:prod"]
