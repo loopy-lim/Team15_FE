@@ -14,13 +14,14 @@ export const QuickReview = () => {
   const setText = useSetAtom(reviewText);
 
   return (
-    <div className="w-full text-center flex flex-col gap-4">
+    <div className="flex flex-col w-full gap-4 text-center">
       <Txt>한줄 평으로 빠르게 남겨보세요 !</Txt>
       <div className="flex flex-wrap justify-center gap-2">
         {quickReviewList.map((review) => {
           return (
             <button
-              className="border p-2 rounded-lg"
+              key={review}
+              className="p-2 border rounded-lg"
               onClick={() => setText(review)}
             >
               <Txt typography="subtitle">{review}</Txt>

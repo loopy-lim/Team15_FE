@@ -10,17 +10,18 @@ import ReactModal from "react-modal";
  *  isOpen: boolean,
  *  onRequestClose: () => void
  *  className: string,
+ *  overLayCss: React.CSSProperties
  * }}
  */
-const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
+export const CommonModal = ({
+  children,
+  isOpen,
+  onRequestClose,
+  className,
+  overLayCss,
+}) => {
   const overlay = {
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
-    backdropFilter: "blur(4px)",
-    WebkitBackdropFilter: "blur(4px)",
-    position: "absolute",
-    inset: "0",
-    width: isMobile ? "w-full" : "480px",
-    zIndex: "100",
+    ...overLayCss,
   };
 
   const modalElement = document.getElementById("modal");
@@ -31,13 +32,51 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
       onRequestClose={onRequestClose}
       style={{ overlay }}
       appElement={modalElement}
+      className={className}
+    >
+      {children}
+    </ReactModal>
+  );
+};
+
+/**
+ * @param {{
+ *  children: React.ReactNode,
+ *  isOpen: boolean,
+ *  onRequestClose: () => void
+ *  className: string,
+ *  overLayCss: React.CSSProperties
+ * }}
+ */
+const BaseModal = ({
+  children,
+  isOpen,
+  onRequestClose,
+  className,
+  overLayCss,
+}) => {
+  const overlay = {
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    backdropFilter: "blur(4px)",
+    WebkitBackdropFilter: "blur(4px)",
+    position: "absolute",
+    inset: "0",
+    width: isMobile ? "w-full" : "480px",
+    zIndex: "100",
+    ...overLayCss,
+  };
+  return (
+    <CommonModal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      style={{ overlay }}
       className={classnames(
         "py-4 px-8 rounded-md border bg-[#F8F8F8] relative text-center w-fit h-fit top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
         className
       )}
     >
       {children}
-    </ReactModal>
+    </CommonModal>
   );
 };
 
@@ -50,8 +89,8 @@ const BaseModal = ({ children, isOpen, onRequestClose, className }) => {
  */
 const AlertModal = ({ children, isOpen, onRequestClose, onClose }) => (
   <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
-    <div className="text-center my-2 transition-all">{children}</div>
-    <Button size="small" className="w-36 text-sm" onClick={onClose}>
+    <div className="my-2 text-center transition-all">{children}</div>
+    <Button size="small" className="text-sm w-36" onClick={onClose}>
       확인
     </Button>
   </Modal>
@@ -68,7 +107,7 @@ const ToDayModal = ({ children, isOpen, onRequestClose, onClose }) => {
   return (
     <Modal className="!p-0" isOpen={isOpen} onRequestClose={onRequestClose}>
       <div className="text-center transition-all">{children}</div>
-      <div className="flex justify-between items-center">
+      <div className="flex items-center justify-between">
         <button className="p-2" onClick={onClose}>
           오늘은 그만보기
         </button>

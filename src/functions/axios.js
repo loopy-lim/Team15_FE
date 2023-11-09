@@ -20,10 +20,16 @@ https.interceptors.response.use(
   },
   (error) => {
     const resDto = error.response.data;
-    console.log(resDto);
-    if (resDto.reason === "UnauthorizedException") {
+    if (resDto.reason === "login_unauthenticated_user") {
       location.href = "/signin";
     }
+    if (error.response.status >= 500) {
+      window.location.href = "/error/500";
+    }
+    if (error.response.status >= 404) {
+      window.location.href = "/error/404";
+    }
+    return Promise.reject(error.response.data);
   }
 );
 

@@ -1,8 +1,9 @@
 import { SigninPage } from "../src/pages/sign/Signin.page.jsx";
 import { SignupPage } from "../src/pages/sign/Signup.page.jsx";
-import { AccountPage } from "../src/pages/sign/Account.page.jsx";
-import { SchoolPage } from "../src/pages/sign/School.page.jsx";
-import { SchoolCardPage } from "../src/pages/sign/SchoolCard.page.jsx";
+import { AccountPage } from "../src/pages/sign/SignupAccount.page.jsx";
+import { SchoolPage } from "../src/pages/sign/SignupSchool.page.jsx";
+import { SchoolCardPage } from "../src/pages/sign/SignupSchoolCard.page.jsx";
+import { SignOutPage } from "../src/pages/sign/Signout.page.jsx";
 
 const signRouter = [
   {
@@ -10,7 +11,7 @@ const signRouter = [
     element: <SigninPage />,
   },
   {
-    path: "/signup/name",
+    path: "/signup",
     element: <SignupPage />,
   },
   {
@@ -24,6 +25,10 @@ const signRouter = [
   {
     path: "/signup/schoolcard",
     element: <SchoolCardPage />,
+  },
+  {
+    path: "/signout",
+    element: <SignOutPage />,
   },
 ];
 

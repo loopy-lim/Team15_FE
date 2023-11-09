@@ -46,8 +46,6 @@ export const productMocks = [
     const { productId } = req.params;
     const { startAt, endAt } = await req.json();
 
-    console.log(startAt, endAt);
-
     const product = productData.find(
       (product) => product.id === Number(productId)
     );

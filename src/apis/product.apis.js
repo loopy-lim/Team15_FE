@@ -25,3 +25,11 @@ export const getProductByCategory = async (category) => {
   }
   return products.response.map((product) => new ProductDto(product));
 };
+
+export const getProductBySearch = async (search) => {
+  const products = await https.get(`/product?search=${search}`);
+  if (isAxiosError(products) && products.response?.status === 404) {
+    window.location.href = "/error/404";
+  }
+  return products.response.map((product) => new ProductDto(product));
+};

@@ -13,12 +13,12 @@ export const MainContainer = ({ children, hasBottomFullLink = true }) => {
     <main
       aria-label="main"
       className={classnames(
-        "bg-white overflow-auto",
+        "overflow-auto bg-white",
         BASE_PADDING,
         hasBottomFullLink
           ? isMobile && isIOS
             ? "h-[calc(100vh-10rem-env(safe-area-inset-top))]"
-            : "h-[calc(100vh-8.5rem)]"
+            : "h-[calc(100vh-9rem)]"
           : isMobile && isIOS
           ? "h-[calc(100vh-3.5rem-env(safe-area-inset-top))]"
           : "h-[calc(100vh-3.5rem)]"

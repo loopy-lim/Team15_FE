@@ -10,7 +10,7 @@ export const RentalListPage = () => {
       <AppBar title="대여내역" to="/" />
       <MainContainer hasBottomFullLink={false}>
         <ErrorBoundary>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<></>}>
             <RentalList />
           </Suspense>
         </ErrorBoundary>

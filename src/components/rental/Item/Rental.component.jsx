@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { Txt } from "../../common/Txt.component.jsx";
 import { Button } from "../../common/Button.component.jsx";
-import { useGetProductById } from "../../../hooks/useProductQuery.jsx";
 import { RentalDto } from "../../../apis/dtos/rental.dto.js";
+import { useCreateReturn } from "../../../hooks/useRentalQuery.jsx";
+import { useQueryClient } from "@tanstack/react-query";
 
 /**
  * @param {{
@@ -10,17 +11,32 @@ import { RentalDto } from "../../../apis/dtos/rental.dto.js";
  *  dayDiff: number
  * }}
  */
-export const ItemRental = ({ data, dayDiff }) => {
-  const { product } = useGetProductById(data.productId);
+export const ItemRental = ({ data }) => {
+  const { mutationReturn } = useCreateReturn();
+  const queryClient = useQueryClient();
 
+  const onReturn = () => {
+    mutationReturn(
+      { rentalId: data.rentalId },
+      {
+        onSettled: () => {
+          queryClient.invalidateQueries("rental");
+        },
+      }
+    );
+  };
+
+  const dayDiff = Math.floor(
+    (new Date(data.endAt) - new Date(data.startAt)) / (1000 * 60 * 60 * 24)
+  );
   return (
-    <div className="flex flex-col gap-2 py-12">
+    <div className="flex flex-col gap-2 py-2">
       <div className="flex flex-col">
-        <div>
+        <div className="flex gap-2">
           <Txt className="font-bold">대여중</Txt>
           <Txt colors="secondary" className="font-bold">
-            {`(${new Date(data.borrowAt).toLocaleDateString()} ~ ${new Date(
-              data.returnAt
+            {`(${new Date(data.startAt).toLocaleDateString()} ~ ${new Date(
+              data.endAt
             ).toLocaleDateString()})`}
           </Txt>
         </div>
@@ -33,24 +49,28 @@ export const ItemRental = ({ data, dayDiff }) => {
         </Txt>
       </div>
       <div className="flex gap-4">
-        <div className="flex-1 object-cover aspect-square">
-          <img src={product.productImagePath[0]} alt={product.name} />
+        <div className="object-cover aspect-square w-36 h-36">
+          <img src={data.productImagePath} alt={data.productName} />
         </div>
-        <div className="flex flex-col gap-2 flex-[4_0_0] min-w-max">
+        <div className="flex flex-col flex-1 gap-2">
           <div className="flex flex-col">
-            <Txt typography="h6">{product.companyName}</Txt>
-            <Txt>{product.name}</Txt>
+            <Txt typography="h6">{data.productName}</Txt>
           </div>
           <Txt>1개</Txt>
+          <div className="flex gap-4">
+            <div className="flex-1"></div>
+            <Link className="flex-1">
+              <Button
+                className="flex-1"
+                size="small"
+                color="white"
+                onClick={onReturn}
+              >
+                반납하기
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
-      <div className="flex gap-4">
-        <div className="flex-1"></div>
-        <Link className="flex-1">
-          <Button className="flex-1" size="small" color="white">
-            반납하기
-          </Button>
-        </Link>
       </div>
     </div>
   );

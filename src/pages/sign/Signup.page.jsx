@@ -5,21 +5,29 @@ import { SlidePannels } from "../../components/sign/SlidePannel.component.jsx";
 import { SignInformation } from "../../components/sign/Information.component.jsx";
 import { MainContainer } from "../../components/common/MainContainer.component.jsx";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAtom } from "jotai";
+import { isValidName } from "../../functions/validator.js";
+import { nameAtom } from "../../stores/sign.atom.js";
 
 export const SignupPage = () => {
-  const [name, setName] = useState("");
+  const [name, setName] = useAtom(nameAtom);
   const [canNext, setCanNext] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
     let newName = event.target.value;
     if (newName.length > 10) {
       newName = newName.slice(0, 10);
     }
-
-    const isValidName = /^[a-zA-Z가-힣0-9]{2,11}$/.test(newName);
-
     setName(newName);
-    setCanNext(isValidName);
+    setCanNext(isValidName(newName));
+  };
+
+  const onEnterClick = (event) => {
+    if (event.key === "Enter" && canNext) {
+      navigate("/signup/account");
+    }
   };
 
   return (
@@ -31,7 +39,14 @@ export const SignupPage = () => {
         <SignInformation title={`당신을 어떤 이름으로\n부르면 좋을까요`} />
         <div className="flex flex-col w-full items-center">
           <div className="w-3/4">
-            <Input value={name} onChange={handleNameChange} maxLength={10} />
+            <Input
+              key={"name"}
+              className="text-center text-2xl"
+              value={name}
+              onChange={handleNameChange}
+              maxLength={10}
+              onKeyDown={onEnterClick}
+            />
           </div>
         </div>
         <Txt typography="subtitle" colors="secondaryLight" className="my-1">

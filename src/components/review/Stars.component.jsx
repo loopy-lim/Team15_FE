@@ -14,22 +14,12 @@ export const ReviewStars = ({ length = 5 }) => {
     <div className="flex gap-4">
       {Array.from({ length }, (_, index) => {
         return (
-          <button onClick={() => setRating(index + 1)}>
-            {index < rating ? (
-              <Icon
-                key={index}
-                type="fillStar"
-                size="large"
-                className="fill-[#62AB05]"
-              />
-            ) : (
-              <Icon
-                key={index}
-                type="star"
-                size="large"
-                className="fill-[#62AB05]"
-              />
-            )}
+          <button key={index} onClick={() => setRating(index + 1)}>
+            <Icon
+              type={index < rating ? "fillStar" : "star"}
+              size="large"
+              className="fill-[#62AB05]"
+            />
           </button>
         );
       })}

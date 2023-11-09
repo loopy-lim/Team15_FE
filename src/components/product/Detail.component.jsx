@@ -3,6 +3,7 @@ import { Carousel } from "../common/Carousel.component.jsx";
 import { ProductCompany } from "./Company.component.jsx";
 import { Txt } from "../common/Txt.component.jsx";
 import { useGetProductById } from "../../hooks/useProductQuery.jsx";
+import { koString } from "../../functions/localeString.js";
 
 /**
  * @param {{
@@ -34,8 +35,10 @@ export const ProductDetail = ({ id }) => {
       <article className="my-4">
         <Txt typography="h5">{product.productName}</Txt>
         <div className="flex items-baseline justify-between">
-          <Txt typography="h2">{`${product.rentalPrice} / 일`}</Txt>
-          <Txt typography="subtitle">{`정가: ${product.regularPrice}원~`}</Txt>
+          <Txt typography="h2">{`${koString(product.rentalPrice)} / 일`}</Txt>
+          <Txt typography="subtitle">{`정가: ${koString(
+            product.regularPrice
+          )}원~`}</Txt>
         </div>
         <Txt
           typography="p"

@@ -14,13 +14,13 @@ export const HomePage = () => {
         <HomeCarousel />
         <div className="my-8">
           <ErrorBoundary>
-            <Suspense fallback={<div>loading...</div>}>
+            <Suspense fallback={<></>}>
               <HomeCategory />
             </Suspense>
           </ErrorBoundary>
         </div>
         <ErrorBoundary>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<></>}>
             <ProductList />
           </Suspense>
         </ErrorBoundary>

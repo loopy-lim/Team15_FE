@@ -29,13 +29,13 @@ export const PaymoneyProduct = ({ id }) => {
         </div>
         <div className="flex gap-2">
           <img
-            className="w-24 h-24"
+            className="w-36 h-36 object-cover"
             src={product.productImagePath[0]}
             alt={product.name}
           />
           <div className="flex flex-col flex-1 py-2">
             <Txt typography="h6">{product.companyName}</Txt>
-            <Txt>{product.name}</Txt>
+            <Txt>{product.productName}</Txt>
           </div>
         </div>
         <Br />

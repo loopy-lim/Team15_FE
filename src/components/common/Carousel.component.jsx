@@ -4,18 +4,21 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./custom-carousel.css";
+import classames from "classnames";
+
 
 /**
  * @param {{
+ *  className: string,
  *  data: {
  *    img: React.ImgHTMLAttributes<HTMLImageElement>
  *  }[]
  * }}
  */
-export const Carousel = ({ data: carouselData }) => {
+export const Carousel = ({ className, data: carouselData }) => {
   return (
     <Swiper
-      className="home-carousel rounded-lg"
+      className={classames("rounded-lg home-carousel", className)}
       slidesPerView={1}
       loop={true}
       pagination={{

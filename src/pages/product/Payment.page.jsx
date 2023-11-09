@@ -22,7 +22,7 @@ export const PaymentPage = () => {
         <div className="flex flex-col h-full justify-between">
           <div>
             <ErrorBoundary>
-              <Suspense fallback={<div>loading...</div>}>
+              <Suspense fallback={<></>}>
                 <PaymoneyProduct id={id} />
                 <Payment id={id} />
               </Suspense>
@@ -30,7 +30,7 @@ export const PaymentPage = () => {
           </div>
           {!canPay && <AnounceCanPayment productId={id} />}
         </div>
-        <PaymentPayButton />
+        <PaymentPayButton productId={id} />
       </MainContainer>
     </>
   );

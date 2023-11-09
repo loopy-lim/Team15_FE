@@ -1,27 +1,26 @@
 import { RentalDto } from "../../../apis/dtos/rental.dto.js";
-import { RENTAL_TYPE, getRentalType } from "../../../functions/rental.js";
 import { ItemRental } from "./Rental.component.jsx";
 import { ItemRentalCompelete } from "./RentalComplete.component.jsx";
 import { ItemRentalSchedule } from "./RentalSchedule.component.jsx";
 
 /**
  * @param {{
- *  type: {type: keyof typeof RENTAL_TYPE, dayDiff?: number}
  *  data: RentalDto
  * }}
  */
 export const RentalItem = ({ data }) => {
-  const { type, dayDiff } = getRentalType({
-    borrowAt: data.borrowAt,
-    returnAt: data.returnAt,
-  });
-
-  switch (type) {
-    case "RENTAL":
-      return <ItemRental data={data} dayDiff={dayDiff} />;
-    case "RENTAL_COMPLETE":
-      return <ItemRentalCompelete data={data} />;
-    case "RENTAL_SCHEDULE":
+  switch (data.status) {
+    case "대여중":
+      return <ItemRental data={data} />;
+    case "반납완료":
+    case "리뷰완료":
+      return (
+        <ItemRentalCompelete
+          data={data}
+          isReviewed={"리뷰완료" === data.status}
+        />
+      );
+    case "예약중":
       return <ItemRentalSchedule data={data} />;
     default:
       return <></>;

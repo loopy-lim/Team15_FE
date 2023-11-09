@@ -3,6 +3,7 @@ import {
   getAllProduct,
   getProductByCategory,
   getProductById,
+  getProductBySearch,
 } from "../apis/product.apis.js";
 import { ProductDto } from "../apis/dtos/product.dto.js";
 
@@ -40,8 +41,17 @@ export const useGetProductAll = (config) => {
  */
 export const useGetProductByCategory = (category, config) => {
   const { data: products } = useSuspenseQuery({
-    queryKey: ["product", category],
+    queryKey: ["productByCategory", category],
     queryFn: () => getProductByCategory(category),
+    ...config,
+  });
+  return { products };
+};
+
+export const useGetProductBySearch = (search, config) => {
+  const { data: products } = useSuspenseQuery({
+    queryKey: ["productBySearch", search],
+    queryFn: () => getProductBySearch(search),
     ...config,
   });
   return { products };

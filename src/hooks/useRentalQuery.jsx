@@ -3,7 +3,7 @@ import {
   createRental,
   getProductCalculateRental,
 } from "../apis/paymoney.apis.js";
-import { getAllRental } from "../apis/rental.apis.js";
+import { createReturn, getAllRental } from "../apis/rental.apis.js";
 import { RentalDto } from "../apis/dtos/rental.dto.js";
 import { ProductCalculateRentalDto } from "../apis/dtos/product.dto.js";
 
@@ -48,9 +48,18 @@ export const useGetProductRentalCalculate = (
  *  endAt: Date
  * }} param1
  */
-export const useCreateRental = (productId, { startAt, endAt }) => {
-  const { mutate: mutationRental } = useMutation(() =>
-    createRental(productId, { startAt, endAt })
-  );
+export const useCreateRental = (...config) => {
+  const { mutate: mutationRental } = useMutation({
+    ...config,
+    mutationFn: createRental,
+  });
   return { mutationRental };
+};
+
+export const useCreateReturn = (...config) => {
+  const { mutate: mutationReturn } = useMutation({
+    ...config,
+    mutationFn: createReturn,
+  });
+  return { mutationReturn };
 };

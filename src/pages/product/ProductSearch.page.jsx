@@ -1,22 +1,20 @@
 import { Suspense } from "react";
-import { useParams } from "react-router-dom";
 import { ErrorBoundary } from "../../components/common/Errorboundary.component.jsx";
 import { MainContainer } from "../../components/common/MainContainer.component.jsx";
+import { ProductBySerach } from "../../components/product/SerachResult.cmponent.jsx";
+import { useSearchParams } from "react-router-dom";
 import { AppBar } from "../../components/common/AppBar.component.jsx";
-import { ProductListByCategory } from "../../components/product/ListByCategory.component.jsx";
 
-const categorys = ["IT", "도서", "의류", "악기"];
-
-export const ProductCategoryPage = () => {
-  const { id } = useParams();
+export const ProductSearchPage = () => {
+  const [searchPrams] = useSearchParams();
 
   return (
     <>
-      <AppBar to="/" title={categorys.at(+id - 1) ?? "IT"} br={false} />
+      <AppBar title={searchPrams.get("keyword") ?? ""} to="/" />
       <MainContainer hasBottomFullLink={false}>
         <ErrorBoundary>
           <Suspense fallback={<></>}>
-            <ProductListByCategory category={id} />
+            <ProductBySerach search={searchPrams.get("keyword") ?? ""} />
           </Suspense>
         </ErrorBoundary>
       </MainContainer>

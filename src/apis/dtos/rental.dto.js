@@ -1,8 +1,19 @@
 export class RentalDto {
-  constructor({ productId, borrowAt, returnAt, reviewed }) {
+  constructor({
+    productId,
+    startAt,
+    endAt,
+    productName,
+    productImagePath,
+    status,
+    rentalPk,
+  }) {
+    this.rentalId = rentalPk;
     this.productId = productId;
-    this.borrowAt = new Date(borrowAt);
-    this.returnAt = new Date(returnAt);
-    this.reviewed = reviewed;
+    this.productName = productName;
+    this.startAt = new Date(startAt);
+    this.endAt = new Date(endAt);
+    this.productImagePath = productImagePath;
+    this.status = status;
   }
 }

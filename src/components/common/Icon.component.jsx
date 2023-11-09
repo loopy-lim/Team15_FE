@@ -11,6 +11,7 @@ import {
   AiFillStar,
   AiOutlineClose,
 } from "react-icons/ai";
+import {FiDelete} from 'react-icons/fi';
 
 const IconSize = {
   small: "h-4 w-4",
@@ -40,6 +41,7 @@ export const Icon = ({ type, size = "medium", className }) => {
     camera: <AiOutlineCamera className={combileClassName} />,
     star: <AiOutlineStar className={combileClassName} />,
     fillStar: <AiFillStar className={combileClassName} />,
+    delete: <FiDelete className={combileClassName} />,
   };
 
   return IconType[type];

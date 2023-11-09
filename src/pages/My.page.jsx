@@ -14,7 +14,7 @@ export const MyPage = () => {
       <AppBar to="/" />
       <MainContainer>
         <ErrorBoundary>
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<></>}>
             <MyPageInfo />
           </Suspense>
         </ErrorBoundary>

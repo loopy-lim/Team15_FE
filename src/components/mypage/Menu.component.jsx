@@ -19,7 +19,7 @@ const menus = [
   },
   {
     title: "로그아웃",
-    path: "#",
+    path: "/signout",
   },
 ];
 

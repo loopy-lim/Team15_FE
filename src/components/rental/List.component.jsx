@@ -10,7 +10,7 @@ export const RentalList = () => {
   return (
     <ErrorBoundary>
       {rentals.map((data, index) => (
-        <Suspense key={index} fallback={<div>loading...</div>}>
+        <Suspense key={index} fallback={<></>}>
           <RentalItem key={data.productId} data={data} />
           {index !== rentals.length - 1 && <Br />}
         </Suspense>

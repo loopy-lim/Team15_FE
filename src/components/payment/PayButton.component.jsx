@@ -20,10 +20,7 @@ export const PaymentPayButton = ({ productId }) => {
   const [rentData, setRentData] = useAtom(rentDateAtom);
   const [isOpenModal, setIsOpenModal] = useState(false);
   const navigate = useNavigate();
-  const { mutationRental } = useCreateRental(productId, {
-    startAt: rentData.from,
-    endAt: rentData.to,
-  });
+  const { mutationRental } = useCreateRental();
 
   const onModalClose = () => {
     setRentData({ from: new Date(), to: null });
@@ -32,8 +29,16 @@ export const PaymentPayButton = ({ productId }) => {
   };
 
   const onCreateRental = () => {
-    mutationRental();
-    setIsOpenModal(true);
+    mutationRental(
+      {
+        productId,
+        date: {
+          startAt: rentData.from,
+          endAt: rentData.to,
+        },
+      },
+      { onSettled: () => setIsOpenModal(true) }
+    );
   };
 
   return (

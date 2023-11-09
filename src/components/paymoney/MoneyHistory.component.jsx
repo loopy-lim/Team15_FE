@@ -1,40 +1,29 @@
+import { koDateString, koString } from "../../functions/localeString.js";
+import { useGetPaymoneyLog } from "../../hooks/usePaymonyQuery.jsx";
 import { Txt } from "../common/Txt.component.jsx";
 
-export const MoneyHistory = ({ }) => {
-  const { coinType, createAt } = {
-    id: "1",
-    // piece: "10000",
-    coinType: "결제",
-    createAt: "2023-09-18 12:00:00",
-  };
+export const MoneyHistory = () => {
+  const { paymentLog } = useGetPaymoneyLog();
 
   return (
     <div className="bg-[#FBFBFB] rounded-lg border border-[#F1F1F1] flex flex-col h-full">
       <Txt className="border-b border-[#F1F1F1] py-2 px-4">페이머니 내역</Txt>
-      <br />
-      <Txt typography="h8">9월 18일 (월)</Txt>
-      <div className="p-4 flex justify-between">
-        <Txt typography="h6">-10,000원</Txt>
-        <Txt typography="h8">결제 | 페이머니 사용</Txt>
-      </div>
-      <br />
-      <Txt typography="h8">9월 18일 (월)</Txt>
-      <div className="p-4 flex justify-between">
-        <Txt typography="h6">+10,000원</Txt>
-        <Txt typography="h8">입금 | 페이머니 충전</Txt>
-      </div>
-      <br />
-      <Txt typography="h8">6월 16일 (월)</Txt>
-      <div className="p-4 flex justify-between">
-        <Txt typography="h6">-60,000원</Txt>
-        <Txt typography="h8">결제 | 페이머니 사용</Txt>
-      </div>
-      <br />
-      <Txt typography="h8">6월 16일 (월)</Txt>
-      <div className="p-4 flex justify-between">
-        <Txt typography="h6">+60,000원</Txt>
-        <Txt typography="h8">입금 | 페이머니 충전</Txt>
-      </div>
+      <ul className="flex flex-col flex-1 w-full min-h-0">
+        {paymentLog.map((log) => (
+          <li className="w-full px-4 pt-4" key={log.createdAt}>
+            <Txt>{koDateString(log.createdAt)}</Txt>
+            <div className="flex justify-between py-4">
+              <Txt typography="h6">{koString(log.piece)}원</Txt>
+              <div className="flex items-center gap-2">
+                <Txt>{log.coinType}</Txt>
+                <div className="h-3 bg-black w-[1px]"></div>
+                <Txt>페이머니 {log.coinType === "충전" ? "충전" : "사용"}</Txt>
+              </div>
+            </div>
+            <div className="w-full h-[1px] bg-[#F1F1F1]"></div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

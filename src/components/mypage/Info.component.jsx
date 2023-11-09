@@ -8,7 +8,11 @@ export const MyPageInfo = () => {
   return (
     <div className="flex gap-4 items-center py-6 bg-white">
       <div className="flex-1">
-        <img className="rounded-full" src={myInfo.idCardImagePath} alt="user" />
+        <img
+          className="aspect-square object-cover rounded-full"
+          src={myInfo.idCardImagePath}
+          alt="user"
+        />
       </div>
       <div className="flex flex-col flex-[2_0_0] gap-2">
         <Txt>{myInfo.universityName}</Txt>

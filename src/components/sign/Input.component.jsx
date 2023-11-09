@@ -28,7 +28,7 @@ export const Input = ({ type = "text", label = "", className, ...props }) => {
         id={id}
         type={type}
         className={classNames(
-          "border-b-2 py-1 my-3 border-[#62AB05] outline-none",
+          "border-b-2 py-1 my-3 border-[#62AB05]",
           className
         )}
       />

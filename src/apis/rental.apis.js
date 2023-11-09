@@ -8,3 +8,12 @@ export const getAllRental = async () => {
   }
   return rentals.response.map((rental) => new RentalDto(rental));
 };
+
+export const createReturn = async ({ rentalId }) => {
+  const result = await https.post(`/rental/${rentalId}/return`);
+  if (isAxiosError(result) && result.response?.status === 404) {
+    window.location.href = "/error/404";
+  }
+
+  return result.response;
+};

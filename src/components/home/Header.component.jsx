@@ -20,7 +20,7 @@ export const HomeHeader = () => {
           <Menu />
           <Txt typography="h6">전남대</Txt>
         </div>
-        <Link to="/serach">
+        <Link to="/search">
           <Icon type="search" />
         </Link>
       </div>

@@ -5,6 +5,8 @@ import { canPayByMoney } from "../../stores/payment.atom.js";
 import { Txt } from "../common/Txt.component.jsx";
 import { useGetProductRentalCalculate } from "../../hooks/useRentalQuery.jsx";
 import { useGetPaymoney } from "../../hooks/usePaymonyQuery.jsx";
+import { koString } from "../../functions/localeString.js";
+import { useNavigate } from "react-router-dom";
 
 /**
  * @param {{
@@ -14,6 +16,7 @@ import { useGetPaymoney } from "../../hooks/usePaymonyQuery.jsx";
 export const Payment = ({ id }) => {
   const [rentDate] = useAtom(rentDateAtom);
   const [canPay, setCanPay] = useAtom(canPayByMoney);
+  const navigate = useNavigate();
 
   const { payment } = useGetPaymoney();
   const { rental } = useGetProductRentalCalculate(id, {
@@ -22,7 +25,11 @@ export const Payment = ({ id }) => {
   });
 
   useEffect(() => {
-    setCanPay(payment.piece >= rental.totalPrice);
+    setCanPay(payment.piece >= rental.totalPrice && rental.totalPrice > 0);
+    if (!rental.totalPrice || rental.totalPrice < 0) {
+      alert("에러가 발행했습니다. 다시 시도해주세요.");
+      navigate("/");
+    }
   }, [rental, payment]);
 
   return (
@@ -32,9 +39,9 @@ export const Payment = ({ id }) => {
           <Txt typography="h6" colors="secondaryLight">
             주문금액
           </Txt>
-          <Txt
-            className={!canPay && "text-red-600"}
-          >{`${rental.totalPrice} 원`}</Txt>
+          <Txt className={!canPay && "text-red-600"}>{`${koString(
+            rental.totalPrice
+          )} 원`}</Txt>
         </div>
         <div className="flex justify-between">
           <Txt typography="h6" colors="secondaryLight">
@@ -46,13 +53,13 @@ export const Payment = ({ id }) => {
           <Txt typography="h6" colors="secondaryLight">
             페이머니
           </Txt>
-          <Txt>{`보유 ${payment.piece} 원`}</Txt>
+          <Txt>{`보유 ${koString(payment.piece)} 원`}</Txt>
         </div>
         <div className="flex justify-between">
           <Txt typography="h6" colors="secondaryLight">
             사용
           </Txt>
-          <Txt>{`${rental.totalPrice} 원`}</Txt>
+          <Txt>{`${koString(rental.totalPrice)} 원`}</Txt>
         </div>
       </div>
     </div>

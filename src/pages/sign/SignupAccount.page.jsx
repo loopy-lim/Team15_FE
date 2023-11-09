@@ -5,34 +5,40 @@ import { MainContainer } from "../../components/common/MainContainer.component";
 import { Txt } from "../../components/common/Txt.component";
 import { useState } from "react";
 import { Input } from "../../components/sign/Input.component";
-
-const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-const passwordPattern =
-  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+import { isValidEmail, isValidPassword } from "../../functions/validator";
+import { useAtom } from "jotai";
+import { emailAtom, passwordAtom } from "../../stores/sign.atom";
+import { useNavigate } from "react-router-dom";
 
 export const AccountPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useAtom(emailAtom);
+  const [password, setPassword] = useAtom(passwordAtom);
   const [canNext, setCanNext] = useState(false);
+  const navigate = useNavigate();
 
   const handleEmailChange = (event) => {
     const newEmail = event.target.value;
     setEmail(newEmail);
-    const isValid = isValidEmailAndPassword(newEmail, password);
-    setCanNext(isValid);
+    setCanNext(newEmail && password);
   };
 
   const handlePasswordChange = (event) => {
     const newPassword = event.target.value;
     setPassword(newPassword);
-    isValidEmailAndPassword(email, newPassword);
+    setCanNext(email && newPassword);
   };
 
-  const isValidEmailAndPassword = (newEmail, newPassword) => {
-    const isEmailValid = emailPattern.test(newEmail);
-    const isPasswordValid = passwordPattern.test(newPassword);
-    return isEmailValid && isPasswordValid;
+  const onNext = () => {
+    if (!isValidEmail(email)) {
+      alert("형식에 맞추어 이메일을 설정해 주세요.");
+      return;
+    }
+    if (!isValidPassword(password)) {
+      alert("형식에 맞추어 비밀번호를 설정해 주세요.");
+      return;
+    }
+    if (!canNext) return;
+    navigate("/signup/school");
   };
 
   return (
@@ -44,27 +50,32 @@ export const AccountPage = () => {
         <SignInformation title={`이메일과 비밀번호를\n설정하세요`} />
         <div className="flex flex-col gap-4 w-3/4">
           <Input
+            key="email"
+            className="text-lg"
             type="text"
             label="Email"
             value={email}
             onChange={handleEmailChange}
           />
           <Input
+            key="password"
+            className="text-lg"
             type="password"
             label="Password"
             value={password}
             onChange={handlePasswordChange}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                onNext();
+              }
+            }}
           />
           <Txt typography="subtitle" colors="secondaryLight">
             비밀번호는 영어와 숫자, 특수문자 포함하는 8자 이상
           </Txt>
         </div>
       </div>
-      <BottomFullLink
-        title="다음으로"
-        to={`/signup/school`}
-        isActive={canNext}
-      />
+      <BottomFullLink title="다음으로" onClick={onNext} isActive={canNext} />
     </MainContainer>
   );
 };

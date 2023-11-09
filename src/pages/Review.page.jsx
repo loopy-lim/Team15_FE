@@ -10,25 +10,22 @@ import { Modal } from "../components/common/Modal.component.jsx";
 import { useCreateReview } from "../hooks/useReviewQuery.jsx";
 
 export const ReviewPage = () => {
-  const { productId } = useParams();
+  const { rentalId } = useParams();
   const navigate = useNavigate();
 
   const [text, setText] = useAtom(reviewText);
   const [score, setScore] = useAtom(reviewScore);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { mutationReview } = useCreateReview(productId, {
-    star: score,
-    content: text,
-  });
+  const { mutationReview } = useCreateReview();
 
   const closeModalOpen = () => {
-    navigate("/");
+    navigate("/rental");
     setIsModalOpen(false);
   };
 
   const onReviewSubmit = () => {
     setIsModalOpen(true);
-    mutationReview();
+    mutationReview({content: text, rentalId, star: score});
     setText("");
     setScore(0);
   };
@@ -37,7 +34,7 @@ export const ReviewPage = () => {
     <>
       <AppBar to="/" />
       <MainContainer hasBottomFullLink={true}>
-        <Review productId={productId} />
+        <Review />
         <BottomFullLink
           title="리뷰 남기기"
           isActive={text != "" && score !== 0}
